@@ -1,0 +1,9 @@
+{
+    "name": "@virtuallyunknown/rule-tester",
+    "type": "module",
+    "private": true,
+    "dependencies": {
+        "@virtuallyunknown/eslint-config": "*",
+        "@virtuallyunknown/tsconfig": "*"
+    }
+}

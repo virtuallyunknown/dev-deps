@@ -1,0 +1,13 @@
+@import url(https://fonts.bunny.net/css?family=inter:400,500,600,700,800,900|source-code-pro:400,500,600,700);
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* #root {
+    @apply flex flex-col items-stretch max-w-screen-xl mx-auto font-inter p-4 gap-4;
+} */
+
+code {
+    @apply text-sm bg-neutral-100 rounded px-1 leading-none;
+}

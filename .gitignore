@@ -1,0 +1,13 @@
+# node_modules
+node_modules/
+
+# output
+packages/**/out/
+
+# env/secrets
+*.env
+
+# other
+.nx/
+notes.md
+test/

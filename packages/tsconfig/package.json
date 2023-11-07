@@ -1,0 +1,22 @@
+{
+    "name": "@virtuallyunknown/tsconfig",
+    "version": "0.0.0",
+    "author": {
+        "name": "virtuallyunknown",
+        "url": "https://github.com/virtuallyunknown"
+    },
+    "description": "Common Typescript configurations.",
+    "keywords": [
+        "typescript",
+        "tsconfig"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "src/*.json"
+    ],
+    "exports": {
+        "./*.json": "./src/*.json"
+    }
+}

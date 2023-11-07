@@ -1,0 +1,26 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.nx": true,
+        "**/.vscode": false,
+        "**/node_modules": false,
+        "**/packages/**/out": true
+    },
+    "css.lint.unknownAtRules": "ignore",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    /**
+     * https://github.com/lukeed/clsx#tailwind-support
+     * https://github.com/ben-rogerson/twin.macro/discussions/227#discussion-38611
+     */
+    "tailwindCSS.experimental.classRegex": [
+        ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ],
+    "tailwindCSS.includeLanguages": {
+        "typescript": "javascript",
+        "typescriptreact": "javascript"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "editor.autoClosingQuotes": "always"
+}

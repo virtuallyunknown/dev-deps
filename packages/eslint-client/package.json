@@ -1,0 +1,36 @@
+{
+    "name": "@virtuallyunknown/eslint-client",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "node esbuild.js",
+        "check": "tsc",
+        "copy": "echo copy generated files to root export directory"
+    },
+    "dependencies": {
+        "@codemirror/lang-json": "^6.0.1",
+        "@codemirror/lint": "^6.4.2",
+        "@lezer/highlight": "^1.2.0",
+        "@trpc/client": "^10.44.1",
+        "@uiw/codemirror-extensions-langs": "^4.21.21",
+        "@uiw/codemirror-theme-github": "^4.21.21",
+        "@uiw/codemirror-themes": "^4.21.21",
+        "@uiw/react-codemirror": "^4.21.21",
+        "@virtuallyunknown/eslint-server": "0.0.0",
+        "clsx": "^2.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "superjson": "^2.2.1",
+        "zod": "^3.22.4",
+        "zustand": "^4.5.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.45",
+        "@types/react-dom": "^18.2.18",
+        "@virtuallyunknown/esbuild": "0.0.0",
+        "@virtuallyunknown/tsconfig": "0.0.0",
+        "eslint-plugin-tailwindcss": "^3.13.0",
+        "typescript": "^5.3.3"
+    }
+}

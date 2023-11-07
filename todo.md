@@ -1,0 +1,5 @@
+-   routing
+-   update nx to latest
+-   eslint config merging
+-   add react rule of hooks
+-   add eslint-plugin-tailwindcss

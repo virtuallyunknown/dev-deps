@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "nodenext",
+        "allowJs": true,
+        "checkJs": true
+    },
+    "include": ["packages/**/*"],
+    "exclude": ["packages/**/out"]
+}
