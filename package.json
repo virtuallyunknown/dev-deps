@@ -1,0 +1,45 @@
+{
+    "name": "@virtuallyunknown/dev-deps",
+    "version": "0.0.0",
+    "type": "module",
+    "author": {
+        "name": "virtuallyunknown",
+        "url": "https://github.com/virtuallyunknown"
+    },
+    "description": "common configurations for typescript, eslint, esbuild and others.",
+    "license": "MIT",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "keywords": [
+        "typescript",
+        "eslint",
+        "esbuild",
+        "configurations"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/virtuallyunknown/dev-deps.git"
+    },
+    "files": [
+        "./tsconfig"
+    ],
+    "exports": {
+        "./tsconfig/*.json": {
+            "require": "./tsconfig/*.json"
+        }
+    },
+    "release-it": {
+        "git": {
+            "requireBranch": "master",
+            "commitMessage": "chore: release v${version}",
+            "changelog": "git log --first-parent --pretty=format:\"* %s (%h)\" ${from}...${to} | sort"
+        },
+        "github": {
+            "release": true,
+            "host": "github.com"
+        },
+        "verbose": 2
+    }
+}
