@@ -9,5 +9,4 @@ packages/**/out/
 
 # other
 .nx/
-notes.md
 test/
