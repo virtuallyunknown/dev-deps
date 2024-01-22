@@ -1,7 +1,7 @@
 module.exports = {
     root: true,
     extends: [
-        '@virtuallyunknown/eslint-config/default',
+        '@virtuallyunknown/eslint-config',
         '@virtuallyunknown/eslint-config/react',
         '@virtuallyunknown/eslint-config/stylistic',
     ],
@@ -10,7 +10,7 @@ module.exports = {
     //     '@typescript-eslint',
     //     'react',
     //     'unicorn',
-    //     '@stylistic'
+    //     '@stylistic' 
     // ],
     parserOptions: {
         project: './tsconfig.json',
