@@ -1,4 +1,4 @@
-import { Rule, BaseRule, ExtendedRule, RuleUpgrade, RuleFilters, Dependencies } from '@virtuallyunknown/eslint-server/types';
+import { BaseRule, Dependencies, ExtendedRule, Rule, RuleFilters, RuleUpgrade } from '@virtuallyunknown/eslint-server/types';
 
 export type RuleUpdate = Partial<Record<keyof ExtendedRule, any>>
 

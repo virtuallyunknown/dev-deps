@@ -1,4 +1,4 @@
-import { tags as t } from '@lezer/highlight';
+// import { tags as t } from '@lezer/highlight';
 import { createTheme } from '@uiw/codemirror-themes';
 
 export const flowBiteTheme = createTheme({

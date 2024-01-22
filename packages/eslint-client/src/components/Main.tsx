@@ -1,5 +1,5 @@
 import { useStore } from '../util/index.js';
-import { RuleList, RuleEditor, ProjectDetails, Toasts, RuleUpgrades, RuleAdditions } from './index.js';
+import { ProjectDetails, RuleAdditions, RuleEditor, RuleList, RuleUpgrades, Toasts } from './index.js';
 
 export const Main = () => {
     const [page] = useStore(state => [state.page]);

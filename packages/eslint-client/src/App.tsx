@@ -1,6 +1,6 @@
-import { StrictMode, useEffect } from "react"
+import { StrictMode, useEffect } from "react";
+import { Main, Navbar, Sidebar } from './components/index.js';
 import { useStore } from "./util/index.js";
-import { Navbar, Sidebar, Main } from './components/index.js';
 
 export const App = () => {
     const [hydrate] = useStore(state => [state.hydrate]);

@@ -1,5 +1,5 @@
-import { useStore } from "../util/index.js";
 import { RuleUpgrade } from '@virtuallyunknown/eslint-server/types';
+import { useStore } from "../util/index.js";
 import { Button } from './index.js';
 
 const Diff = ({ diff }: { diff: RuleUpgrade['diffs'][number] }) => {

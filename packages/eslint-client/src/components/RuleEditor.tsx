@@ -1,13 +1,12 @@
-import { useEffect, useState, useCallback } from 'react';
-import { clsx } from 'clsx';
 import { json, jsonParseLinter } from '@codemirror/lang-json';
 import { linter } from '@codemirror/lint';
 import { githubLight } from '@uiw/codemirror-theme-github';
 import CodeMirror, { ViewUpdate } from '@uiw/react-codemirror';
+import { clsx } from 'clsx';
+import { useCallback, useEffect, useState } from 'react';
+import { RuleUpdate } from '../types.js';
 import { Description, useStore, validateConfig } from "../util/index.js";
 import { Button } from './index.js';
-import { RuleUpdate } from '../types.js';
-import { flowBiteTheme } from '../util/index.js';
 
 const extensions = [json(), linter(jsonParseLinter(), { delay: 0 })];
 
@@ -17,7 +16,7 @@ const RuleProp = ({ name, checked, disabled = true }: { name: string, checked: b
             <input
                 type="checkbox"
                 className={
-                    clsx("h-4 w-4 rounded border-gray-300 bg-gray-100 accent-blue-500", disabled && 'opacity-50')
+                    clsx("size-4 rounded border-gray-300 bg-gray-100 accent-blue-500", disabled && 'opacity-50')
                 }
                 checked={checked}
                 readOnly
@@ -118,7 +117,7 @@ export const RuleEditor = () => {
                 <label className="flex items-center gap-x-2 text-gray-900">
                     <input
                         type="checkbox"
-                        className='h-4 w-4 rounded border-gray-300 bg-gray-100 accent-blue-500'
+                        className='size-4 rounded border-gray-300 bg-gray-100 accent-blue-500'
                         checked={ruleUpdate.handledByTypescript}
                         onChange={(e) => setRuleUpdate((state) => ({ ...state, handledByTypescript: e.target.checked }))}
                     />

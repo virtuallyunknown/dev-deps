@@ -1,5 +1,5 @@
-import { copyFile } from 'node:fs/promises';
 import { buildReact, buildTailwind, recreateDir } from '@virtuallyunknown/esbuild';
+import { copyFile } from 'node:fs/promises';
 
 await recreateDir({ path: './out' });
 

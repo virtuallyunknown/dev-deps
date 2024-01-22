@@ -1,4 +1,4 @@
-import { Description, useStore } from "../util/index.js"
+import { Description, useStore } from "../util/index.js";
 import { Badge, Button } from "./index.js";
 
 export const RuleAdditions = () => {
