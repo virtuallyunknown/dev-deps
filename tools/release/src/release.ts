@@ -16,7 +16,7 @@ await releaseVersion({
 
 await generateChangelog({
     dryRun: dryRun,
-    repo: 'nx-monorepo',
+    repo: 'dev-deps',
     owner: 'virtuallyunknown',
     from: currentVersion,
     to: newVersion,
@@ -28,7 +28,7 @@ await releasePublish({
     verbose: true,
 
     /** Uncomment when publishing to local registry (verdaccio) */
-    registry: 'http://localhost:4873'
+    // registry: 'http://localhost:4873'
 });
 
 process.exit(0);
