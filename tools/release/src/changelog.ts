@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { getCommits, getParentHashFromVersionTag, createGitHubPush, gitConfig } from './index.js';
 import type { Commit, CommitType } from './index.js';
+import { createGitHubPush, getCommits, getParentHashFromVersionTag, gitConfig } from './index.js';
 
 type GenerateChangelogParams = {
     from: string;
