@@ -1,7 +1,7 @@
+import autoprefixer from 'autoprefixer';
 import { readFile } from 'node:fs/promises';
 import postcss from 'postcss';
 import postcssImport from 'postcss-import';
-import autoprefixer from 'autoprefixer';
 import tailwindcss from 'tailwindcss';
 
 /**
