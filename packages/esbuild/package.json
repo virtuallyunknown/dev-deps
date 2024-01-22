@@ -21,9 +21,10 @@
             "import": "./src/index.js"
         }
     },
-    "devDependencies": {
+    "dependencies": {
         "autoprefixer": "^10.4.16",
         "esbuild": "^0.19.9",
+        "fast-glob": "^3.3.2",
         "postcss": "^8.4.32",
         "postcss-import": "^16.0.0",
         "tailwindcss": "^3.3.6"
