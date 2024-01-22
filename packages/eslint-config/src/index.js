@@ -1,7 +1,5 @@
 module.exports = {
     "env": {
-        "browser": true,
-        "node": true,
         "es2024": true
     },
     "plugins": [
@@ -127,12 +125,6 @@ module.exports = {
         ],
         "@typescript-eslint/no-unsafe-assignment": 1,
         "@typescript-eslint/no-unsafe-member-access": 1,
-        "@typescript-eslint/no-unused-vars": [
-            1,
-            {
-                "argsIgnorePattern": "^_"
-            }
-        ],
         "@typescript-eslint/prefer-as-const": 1,
         "@typescript-eslint/prefer-nullish-coalescing": [
             1,
