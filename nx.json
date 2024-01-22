@@ -16,16 +16,14 @@
     "release": {
         "releaseTagPattern": "{version}",
         "projectsRelationship": "fixed",
-        "projects": ["packages/*"],
+        "projects": [
+            "packages/esbuild",
+            "packages/eslint-config",
+            "packages/tsconfig"
+        ],
         "version": {
             "generatorOptions": {
                 "currentVersionResolver": "git-tag"
-            }
-        },
-        "changelog": {
-            "workspaceChangelog": {
-                "createRelease": "github",
-                "file": false
             }
         }
     }
