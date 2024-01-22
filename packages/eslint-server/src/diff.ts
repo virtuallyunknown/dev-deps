@@ -1,5 +1,5 @@
-import { inspect } from 'node:util';
 import type { Difference } from 'microdiff';
+import { inspect } from 'node:util';
 
 export type Diff<T extends Difference = Difference> = T extends T
     ? { [K in keyof T]:

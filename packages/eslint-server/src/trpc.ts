@@ -1,8 +1,8 @@
 import { initTRPC } from '@trpc/server';
-import { z } from 'zod';
 import { CreateExpressContextOptions, createExpressMiddleware } from '@trpc/server/adapters/express';
+import { z } from 'zod';
 import { db } from './db/db.js';
-import { ruleSchema, baseRuleSchema, extendedRuleSchema, ruleFilterSchema } from './types.js';
+import { baseRuleSchema, extendedRuleSchema, ruleFilterSchema, ruleSchema } from './types.js';
 
 const createContext = ({ req, res }: CreateExpressContextOptions) => ({});
 const t = initTRPC

@@ -5,8 +5,8 @@
 
 import Ajv from 'ajv';
 import metaSchema from 'ajv/lib/refs/json-schema-draft-04.json' assert { type: 'json' };
-import { Rule } from './types.js';
 import type { JSONSchema4 } from 'json-schema';
+import { Rule } from './types.js';
 
 class _Ajv {
     private ajv: Ajv.Ajv;
