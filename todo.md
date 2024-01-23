@@ -3,3 +3,5 @@
 -   eslint config merging
 -   add react rule of hooks
 -   add eslint-plugin-tailwindcss
+-   add linting tasks
+-   fix all linting problems
