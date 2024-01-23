@@ -29,8 +29,9 @@
         "@types/react": "^18.2.45",
         "@types/react-dom": "^18.2.18",
         "@typescript-eslint/parser": "^6.19.0",
-        "@virtuallyunknown/esbuild": "0.0.0",
-        "@virtuallyunknown/tsconfig": "0.0.0",
+        "@virtuallyunknown/esbuild": "0.0.1",
+        "@virtuallyunknown/tsconfig": "0.0.1",
+        "@virtuallyunknown/eslint-config": "0.0.1",
         "eslint-plugin-tailwindcss": "^3.13.0",
         "typescript": "^5.3.3"
     }
