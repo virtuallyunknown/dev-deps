@@ -112,10 +112,13 @@ importers:
         specifier: ^6.19.0
         version: 6.19.0(eslint@8.56.0)(typescript@5.3.3)
       '@virtuallyunknown/esbuild':
-        specifier: 0.0.0
+        specifier: 0.0.1
         version: link:../esbuild
+      '@virtuallyunknown/eslint-config':
+        specifier: 0.0.1
+        version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.0.0
+        specifier: 0.0.1
         version: link:../tsconfig
       eslint-plugin-tailwindcss:
         specifier: ^3.13.0
@@ -206,10 +209,13 @@ importers:
         specifier: ^7.0.15
         version: 7.0.15
       '@virtuallyunknown/esbuild':
-        specifier: 0.0.0
+        specifier: 0.0.1
         version: link:../esbuild
+      '@virtuallyunknown/eslint-config':
+        specifier: 0.0.1
+        version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.0.0
+        specifier: 0.0.1
         version: link:../tsconfig
 
   packages/tsconfig: {}
