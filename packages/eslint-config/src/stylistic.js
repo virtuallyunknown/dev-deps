@@ -35,12 +35,6 @@ module.exports = {
             1,
             "consistent"
         ],
-        "@stylistic/jsx-one-expression-per-line": [
-            1,
-            {
-                "allow": "single-child"
-            }
-        ],
         "@stylistic/jsx-quotes": [
             1,
             "prefer-single"
