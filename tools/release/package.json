@@ -3,8 +3,8 @@
     "type": "module",
     "private": true,
     "dependencies": {
-        "@virtuallyunknown/eslint-config": "*",
-        "@virtuallyunknown/tsconfig": "*",
+        "@virtuallyunknown/eslint-config": "0.0.1",
+        "@virtuallyunknown/tsconfig": "0.0.1",
         "axios": "^1.6.5",
         "enquirer": "^2.4.1",
         "semver": "^7.5.4"
