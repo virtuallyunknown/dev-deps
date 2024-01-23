@@ -16,11 +16,7 @@
     "release": {
         "releaseTagPattern": "{version}",
         "projectsRelationship": "fixed",
-        "projects": [
-            "packages/esbuild",
-            "packages/eslint-config",
-            "packages/tsconfig"
-        ],
+        "projects": ["packages/*", "tools/*"],
         "version": {
             "generatorOptions": {
                 "currentVersionResolver": "git-tag"
