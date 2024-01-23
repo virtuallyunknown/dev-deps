@@ -107,7 +107,14 @@ module.exports = {
             }
         ],
         "@typescript-eslint/no-loss-of-precision": 2,
-        "@typescript-eslint/no-misused-promises": 2,
+        "@typescript-eslint/no-misused-promises": [
+            2,
+            {
+                "checksVoidReturn": {
+                    "attributes": false
+                }
+            }
+        ],
         "@typescript-eslint/no-non-null-assertion": 1,
         "@typescript-eslint/no-redundant-type-constituents": 1,
         "@typescript-eslint/no-shadow": [

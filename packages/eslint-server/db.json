@@ -17746,8 +17746,14 @@
             ],
             "errorLevel": 2,
             "handledByTypescript": false,
-            "config": [],
-            "updatedAt": "2024-01-16T23:23:31.239Z",
+            "config": [
+                {
+                    "checksVoidReturn": {
+                        "attributes": false
+                    }
+                }
+            ],
+            "updatedAt": "2024-01-22T07:41:26.006Z",
             "note": null
         },
         {
