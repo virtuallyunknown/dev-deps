@@ -8,15 +8,15 @@ type GenerateChangelogParams = {
     owner: string;
     repo: string;
     dryRun: boolean;
-}
+};
 
 type CreateGitHubReleaseParams = {
     tag: string;
     body: string;
     commitHash: string;
     repo: string;
-    owner: string
-}
+    owner: string;
+};
 
 /**
  * @see https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#create-a-release
@@ -26,21 +26,21 @@ type GitHubReleaseRequest = {
     tag_name: string;
     body: string;
     target_commitish: string;
-}
+};
 
 type GitHubReleaseResponse = {
     url: string;
     assets_url: string;
     upload_url: string;
     html_url: string;
-    id: number,
+    id: number;
     created_at: string;
     published_at: string;
-}
+};
 
 async function createGitHubRelease({ tag, body, commitHash, repo, owner }: CreateGitHubReleaseParams) {
     if (!process.env.GITHUB_TOKEN) {
-        throw new Error('No "GH_TOKEN" found in environment variables.')
+        throw new Error('No "GH_TOKEN" found in environment variables.');
     };
 
     const payload: GitHubReleaseRequest = {
@@ -48,13 +48,13 @@ async function createGitHubRelease({ tag, body, commitHash, repo, owner }: Creat
         tag_name: tag,
         body,
         target_commitish: commitHash
-    }
+    };
 
     const res = await axios<GitHubReleaseResponse>({
         url: `https://api.github.com/repos/${owner}/${repo}/releases`,
         method: 'post',
         headers: {
-            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         },
         data: payload
     });
@@ -69,7 +69,7 @@ async function renderChangeLogMarkdown({ from, to }: { from: string, to: string 
     if (Array.isArray(commitGroups.breaking) && commitGroups.breaking.length > 0) {
         output += '## Breaking Changes:\n';
         output += commitGroups.breaking.map(commit => {
-            return `- (${commit.commitHashAbbr}) ${commit.subject}`
+            return `- (${commit.commitHashAbbr}) ${commit.subject}`;
         }).join('\n');
     }
 
@@ -80,12 +80,12 @@ async function renderChangeLogMarkdown({ from, to }: { from: string, to: string 
 
         output += `\n## ${gitConfig.commitTypes[key].title}:\n`;
         output += commits.map(commit => {
-            return `- (${commit.commitHashAbbr}) ${commit.subject}`
+            return `- (${commit.commitHashAbbr}) ${commit.subject}`;
         }).join('\n');
     }
 
-    output += '\n## Thanks:\n'
-    output += [...contributors].map(contributor => `@${contributor}`).join(', ')
+    output += '\n## Thanks:\n';
+    output += [...contributors].map(contributor => `@${contributor}`).join(', ');
 
     return output.trim();
 }
@@ -112,5 +112,5 @@ export async function generateChangelog({ from, to, owner, repo, dryRun }: Gener
         tag: to,
         commitHash: await getParentHashFromVersionTag(to),
         body: markdown
-    })
+    });
 }

@@ -3,17 +3,17 @@ import { runCommand } from './index.js';
 
 export const gitConfig = {
     commitTypes: {
-        'build': { type: 'build', title: 'Build' },
-        'chore': { type: 'chore', title: 'Chores' },
-        'ci': { type: 'ci', title: 'CI' },
-        'docs': { type: 'docs', title: 'Documentation' },
-        'feat': { type: 'feat', title: 'Features' },
-        'fix': { type: 'fix', title: 'Fixes' },
-        'perf': { type: 'perf', title: 'Performance' },
-        'refactor': { type: 'refactor', title: 'Refactor' },
-        'revert': { type: 'revert', title: 'Revert' },
-        'style': { type: 'style', title: 'Styles' },
-        'test': { type: 'test', title: 'Testing' }
+        build: { type: 'build', title: 'Build' },
+        chore: { type: 'chore', title: 'Chores' },
+        ci: { type: 'ci', title: 'CI' },
+        docs: { type: 'docs', title: 'Documentation' },
+        feat: { type: 'feat', title: 'Features' },
+        fix: { type: 'fix', title: 'Fixes' },
+        perf: { type: 'perf', title: 'Performance' },
+        refactor: { type: 'refactor', title: 'Refactor' },
+        revert: { type: 'revert', title: 'Revert' },
+        style: { type: 'style', title: 'Styles' },
+        test: { type: 'test', title: 'Testing' }
     },
     placeholders: {
         newLine: '%n',
@@ -34,14 +34,14 @@ export const gitConfig = {
         files: '__FILES__',
         delim: '__DELIM__'
     }
-}
+};
 
 export type CommitType = keyof typeof gitConfig['commitTypes'];
 
 type CommitDetail = {
     type: CommitType;
     breaking: boolean;
-}
+};
 
 export type Commit = {
     commitHashAbbr: string;
@@ -69,7 +69,7 @@ function assertCommitType(type: string): asserts type is CommitType {
  * Find the latest version tag from git describe
  */
 export async function getLatestVersionTag() {
-    const output = await runCommand('git', ['describe', '--tags', '--abbrev=0'])
+    const output = await runCommand('git', ['describe', '--tags', '--abbrev=0']);
 
     const tag = clean(output);
 
@@ -87,7 +87,7 @@ export async function getLatestVersionTag() {
  * @see https://stackoverflow.com/a/24469132/3258251
  */
 export async function getParentHashFromVersionTag(tag: string) {
-    return await runCommand('git', ['rev-parse', `${tag}^{}`])
+    return runCommand('git', ['rev-parse', `${tag}^{}`]);
 }
 
 export async function getCommits({ from, to }: { from: string, to: string }) {
@@ -120,7 +120,7 @@ function getGitLogFormat() {
         gitConfig.markers.body,
         gitConfig.placeholders.body,
         gitConfig.markers.files,
-    ].join('')
+    ].join('');
 }
 
 function getCommitDetail(subject: string, body?: string): CommitDetail {
@@ -129,7 +129,7 @@ function getCommitDetail(subject: string, body?: string): CommitDetail {
 
     assertCommitType(type);
 
-    return { type, breaking }
+    return { type, breaking };
 }
 
 export async function createGitHubPush() {
@@ -153,7 +153,7 @@ function parseCommits(output: string) {
             subject,
             files: files.split('\n').filter(Boolean),
             ...getCommitDetail(subject, body)
-        }
+        };
 
         contributors.add(authorName);
 
@@ -164,7 +164,7 @@ function parseCommits(output: string) {
 
         acc[commit.type] = acc[commit.type]
             ? [...acc[commit.type] ?? [], commit]
-            : [commit]
+            : [commit];
 
         return acc;
     }, {});
@@ -172,6 +172,6 @@ function parseCommits(output: string) {
     return {
         commitGroups,
         contributors: contributors
-    }
+    };
 }
 

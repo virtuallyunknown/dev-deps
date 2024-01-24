@@ -1,4 +1,4 @@
-import Enquirer from "enquirer";
+import Enquirer from 'enquirer';
 import { inc } from 'semver';
 
 export async function runPrompt(currentVersion: string) {
@@ -17,7 +17,7 @@ export async function runPrompt(currentVersion: string) {
                 return {
                     name: ver.bump,
                     message: `${ver.type}: (${ver.bump})`
-                }
+                };
             })
         },
         {
