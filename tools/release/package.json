@@ -2,6 +2,9 @@
     "name": "@virtuallyunknown/release",
     "type": "module",
     "private": true,
+    "scripts": {
+        "lint": "eslint src/** --max-warnings 0"
+    },
     "dependencies": {
         "@virtuallyunknown/eslint-config": "0.0.1",
         "@virtuallyunknown/tsconfig": "0.0.1",
