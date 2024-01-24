@@ -32,12 +32,6 @@ module.exports = {
         ],
         "no-constant-binary-expression": 2,
         "no-debugger": 1,
-        "no-duplicate-imports": [
-            2,
-            {
-                "includeExports": true
-            }
-        ],
         "no-fallthrough": [
             1,
             {

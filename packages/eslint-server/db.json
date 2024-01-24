@@ -5349,14 +5349,14 @@
                     "additionalProperties": false
                 }
             ],
-            "errorLevel": 2,
+            "errorLevel": 0,
             "handledByTypescript": false,
             "config": [
                 {
                     "includeExports": true
                 }
             ],
-            "updatedAt": "2024-01-14T14:24:30.122Z",
+            "updatedAt": "2024-01-24T13:36:26.950Z",
             "note": null
         },
         {
