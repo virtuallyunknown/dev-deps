@@ -7136,10 +7136,10 @@
             "handledByTypescript": false,
             "config": [
                 {
-                    "props": true
+                    "props": false
                 }
             ],
-            "updatedAt": "2024-01-14T15:00:40.303Z",
+            "updatedAt": "2024-01-24T13:20:13.267Z",
             "note": null
         },
         {
