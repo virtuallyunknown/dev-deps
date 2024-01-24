@@ -8,6 +8,10 @@
         "check": {
             "dependsOn": ["check"],
             "cache": false
+        },
+        "lint": {
+            "dependsOn": ["lint"],
+            "cache": false
         }
     },
     "affected": {

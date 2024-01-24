@@ -24,6 +24,7 @@
     "scripts": {
         "editor": "tsx watcher.ts",
         "check": "nx run-many -t check",
+        "lint": "nx run-many -t lint",
         "update": "pnpm up --latest --interactive --recursive",
         "release": "tsx --trace-uncaught --trace-warnings --env-file=.env tools/release/src/release.ts"
     },
