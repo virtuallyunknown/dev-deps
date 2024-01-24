@@ -29099,10 +29099,10 @@
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [],
-            "errorLevel": 1,
+            "errorLevel": 0,
             "handledByTypescript": false,
             "config": [],
-            "updatedAt": "2024-01-18T03:39:18.962Z",
+            "updatedAt": "2024-01-24T12:41:24.929Z",
             "note": null
         },
         {

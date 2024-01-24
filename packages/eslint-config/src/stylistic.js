@@ -22,7 +22,6 @@ module.exports = {
             1,
             "consistent"
         ],
-        "@stylistic/jsx-closing-tag-location": 1,
         "@stylistic/jsx-curly-brace-presence": [
             1,
             {
