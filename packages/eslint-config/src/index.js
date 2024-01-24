@@ -48,7 +48,7 @@ module.exports = {
         "no-param-reassign": [
             1,
             {
-                "props": true
+                "props": false
             }
         ],
         "no-promise-executor-return": [
@@ -144,7 +144,6 @@ module.exports = {
         "@typescript-eslint/prefer-optional-chain": 1,
         "@typescript-eslint/prefer-ts-expect-error": 1,
         "@typescript-eslint/require-await": 1,
-        "@typescript-eslint/return-await": 2,
         "@typescript-eslint/switch-exhaustiveness-check": [
             1,
             {
