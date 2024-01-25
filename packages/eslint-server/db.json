@@ -18168,14 +18168,14 @@
                     "additionalProperties": false
                 }
             ],
-            "errorLevel": 1,
+            "errorLevel": 0,
             "handledByTypescript": false,
             "config": [
                 {
                     "hoist": "all"
                 }
             ],
-            "updatedAt": "2024-01-16T23:32:39.811Z",
+            "updatedAt": "2024-01-25T12:41:17.091Z",
             "note": null
         },
         {

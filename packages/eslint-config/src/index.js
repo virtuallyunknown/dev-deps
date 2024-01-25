@@ -111,12 +111,6 @@ module.exports = {
         ],
         "@typescript-eslint/no-non-null-assertion": 1,
         "@typescript-eslint/no-redundant-type-constituents": 1,
-        "@typescript-eslint/no-shadow": [
-            1,
-            {
-                "hoist": "all"
-            }
-        ],
         "@typescript-eslint/no-throw-literal": 1,
         "@typescript-eslint/no-unnecessary-condition": [
             1,
