@@ -13,8 +13,8 @@ const MenuItem = ({ text, active, count, onClick }: { text: string, active: bool
             <a href='/' onClick={(e) => e.preventDefault()}>{text}</a>
             {count && count > 0 ? <span>+{count}</span> : ''}
         </li>
-    )
-}
+    );
+};
 
 export const Sidebar = () => {
     const [page, filters, additions, upgrades] = useStore((state) => [state.page, state.filters, state.ruleAdditions, state.ruleUpgrades]);
@@ -22,29 +22,29 @@ export const Sidebar = () => {
 
     return (
         <aside className='sticky top-0 row-start-2 self-start p-4'>
-            <h5 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-900">Menu</h5>
+            <h5 className='mb-2 text-xs font-semibold uppercase tracking-wide text-gray-900'>Menu</h5>
             <ul className='mb-8 cursor-pointer'>
-                <MenuItem text='Rule list' active={page === 'rules'} onClick={() => setPage('rules')} />
-                <MenuItem text='Rule additions' active={page === 'additions'} onClick={() => setPage('additions')} count={additions.length} />
-                <MenuItem text='Rule upgrades' active={page === 'upgrades'} onClick={() => setPage('upgrades')} count={upgrades.length} />
-                <MenuItem text='Project details' active={page === 'project'} onClick={() => setPage('project')} />
+                <MenuItem active={page === 'rules'} text='Rule list' onClick={() => setPage('rules')} />
+                <MenuItem active={page === 'additions'} count={additions.length} text='Rule additions' onClick={() => setPage('additions')} />
+                <MenuItem active={page === 'upgrades'} count={upgrades.length} text='Rule upgrades' onClick={() => setPage('upgrades')} />
+                <MenuItem active={page === 'project'} text='Project details' onClick={() => setPage('project')} />
             </ul>
-            <h5 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-900">Rule filters</h5>
+            <h5 className='mb-2 text-xs font-semibold uppercase tracking-wide text-gray-900'>Rule filters</h5>
             <ul className='mb-8'>
                 {(Object.keys(filters) as Array<keyof typeof filters>).map(filter => (
-                    <li className='py-2' key={filter}>
-                        <label className="mb-2 block text-sm font-medium text-gray-900">{filter}:</label>
+                    <li key={filter} className='py-2'>
+                        <label className='mb-2 block text-sm font-medium text-gray-900'>{filter}:</label>
                         <select
-                            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                            className='block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500'
                             defaultValue={filters[filter] === true ? 'true' : filters[filter] === false ? 'false' : 'off'}
                         >
-                            <option value="true" onClick={() => updateFilter(filter, true)}>true</option>
-                            <option value="false" onClick={() => updateFilter(filter, false)}>false</option>
-                            <option value="off" onClick={() => updateFilter(filter, null)}>off</option>
+                            <option value='true' onClick={() => updateFilter(filter, true)}>true</option>
+                            <option value='false' onClick={() => updateFilter(filter, false)}>false</option>
+                            <option value='off' onClick={() => updateFilter(filter, null)}>off</option>
                         </select>
                     </li>
                 ))}
             </ul>
         </aside>
-    )
-}
+    );
+};

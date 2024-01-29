@@ -7,6 +7,7 @@ export const ErrorLevel = ({ level }: { level: 0 | 1 | 2 }) => {
             level === 0 && 'bg-gray-300',
             level === 1 && 'bg-yellow-300',
             level === 2 && 'bg-red-300',
-        )}></div>
-    )
-}
+        )}>
+        </div>
+    );
+};

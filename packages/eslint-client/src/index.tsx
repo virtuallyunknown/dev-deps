@@ -4,6 +4,6 @@ import { liveReload } from './livereload.js';
 
 const root = document.getElementById('root') as HTMLDivElement;
 
-createRoot(root).render(<App />)
+createRoot(root).render(<App />);
 
 liveReload();

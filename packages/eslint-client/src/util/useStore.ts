@@ -1,6 +1,6 @@
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
-import { StoreActions, StoreProps } from '../types.js';
+import type { StoreActions, StoreProps } from '../types.js';
 
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 import type { AppRouter } from '@virtuallyunknown/eslint-server/trpc';
@@ -82,7 +82,7 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
             [key]: value
         });
 
-        set(() => ({ filters: filters }))
+        set(() => ({ filters: filters }));
         await get().hydrate();
     },
 
@@ -115,7 +115,7 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
     },
     async setPage(page, rule) {
         if (!rule) {
-            return set(() => ({ page }))
+            return set(() => ({ page }));
         }
 
         const rules = get().rules;
@@ -156,11 +156,10 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
             dependencies,
             ruleAdditions,
             ruleUpgrades: ruleUpgrades
-        }))
+        }));
     },
 }),
-    shallow
-);
+    shallow);
 
 // export function createToast(toast: Omit<Toast, 'id'>) {
 //     useStore.getState().createToast(toast);

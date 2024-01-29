@@ -6,12 +6,11 @@ type ButtonProps = {
     size?: 'small' | 'normal';
     disabled?: boolean;
     onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}
+};
 
 export const Button = ({ text, color, size = 'normal', disabled = false, onClick }: ButtonProps) => {
     return (
         <button
-            type="button"
             className={clsx(
                 'rounded-lg px-3 py-2 text-center font-medium focus:outline-none focus:ring-4',
                 color === 'blue' && 'bg-blue-700 text-white hover:bg-blue-800 focus:ring-blue-300',
@@ -23,9 +22,10 @@ export const Button = ({ text, color, size = 'normal', disabled = false, onClick
                 size === 'normal' && 'text-sm',
                 disabled && 'pointer-events-none opacity-50'
             )}
+            type='button'
             {...onClick && { onClick }}
         >
             {text}
         </button>
-    )
-}
+    );
+};

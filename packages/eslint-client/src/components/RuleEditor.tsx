@@ -1,30 +1,31 @@
 import { json, jsonParseLinter } from '@codemirror/lang-json';
 import { linter } from '@codemirror/lint';
 import { githubLight } from '@uiw/codemirror-theme-github';
-import CodeMirror, { ViewUpdate } from '@uiw/react-codemirror';
+import type { ViewUpdate } from '@uiw/react-codemirror';
+import CodeMirror from '@uiw/react-codemirror';
 import { clsx } from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
-import { RuleUpdate } from '../types.js';
-import { Description, useStore, validateConfig } from "../util/index.js";
+import type { RuleUpdate } from '../types.js';
+import { Description, useStore, validateConfig } from '../util/index.js';
 import { Button } from './index.js';
 
 const extensions = [json(), linter(jsonParseLinter(), { delay: 0 })];
 
 const RuleProp = ({ name, checked, disabled = true }: { name: string, checked: boolean, disabled?: boolean }) => {
     return (
-        <label className={clsx("flex items-center gap-x-2 text-gray-900", disabled && "pointer-events-none")}>
+        <label className={clsx('flex items-center gap-x-2 text-gray-900', disabled && 'pointer-events-none')}>
             <input
-                type="checkbox"
-                className={
-                    clsx("size-4 rounded border-gray-300 bg-gray-100 accent-blue-500", disabled && 'opacity-50')
-                }
                 checked={checked}
+                className={
+                    clsx('size-4 rounded border-gray-300 bg-gray-100 accent-blue-500', disabled && 'opacity-50')
+                }
+                type='checkbox'
                 readOnly
             />
-            <span className="text-sm font-medium">{name}</span>
+            <span className='text-sm font-medium'>{name}</span>
         </label>
-    )
-}
+    );
+};
 
 const RuleFooter = () => {
     const [prevRule, nextRule] = useStore(state => [state.prevRule, state.nextRule]);
@@ -34,32 +35,28 @@ const RuleFooter = () => {
         <div className='flex justify-between'>
             <Button
                 color='gray'
-                text='Previous Rule'
                 disabled={!prevRule}
-                {...prevRule && { onClick: () => setPage('editor', prevRule) }}
+                text='Previous Rule'
+                {...prevRule && { onClick: () => void setPage('editor', prevRule) }}
             />
             <Button
                 color='gray'
-                text='Next Rule'
                 disabled={!nextRule}
-                {...nextRule && { onClick: () => setPage('editor', nextRule) }}
+                text='Next Rule'
+                {...nextRule && { onClick: () => void setPage('editor', nextRule) }}
             />
         </div>
-    )
-}
+    );
+};
 
 export const RuleEditor = () => {
     const [selectedRule] = useStore(state => [state.selectedRule]);
     const [setPage, createToast, updateRule] = useStore(state => [state.setPage, state.createToast, state.updateRule]);
 
-    if (!selectedRule) {
-        return;
-    }
-
     const [ruleUpdate, setRuleUpdate] = useState({
-        errorLevel: selectedRule.errorLevel,
-        handledByTypescript: selectedRule.handledByTypescript,
-        config: JSON.stringify(selectedRule.config, null, 4)
+        errorLevel: selectedRule?.errorLevel ?? 0,
+        handledByTypescript: selectedRule?.handledByTypescript ?? false,
+        config: JSON.stringify(selectedRule?.config, null, 4)
     });
 
     const onChange = useCallback((val: string, _viewUpdate: ViewUpdate) => {
@@ -67,6 +64,10 @@ export const RuleEditor = () => {
     }, []);
 
     const submitRule = () => {
+        if (!selectedRule) {
+            return createToast({ type: 'error', message: 'An error has ocurred. No "selectedRule".' });
+        }
+
         if (!validateConfig(ruleUpdate.config)) {
             return createToast({ type: 'error', message: 'Invalid JSON configuration.' });
         }
@@ -74,69 +75,76 @@ export const RuleEditor = () => {
         const update = {
             errorLevel: ruleUpdate.errorLevel,
             handledByTypescript: ruleUpdate.handledByTypescript,
-            config: JSON.parse(ruleUpdate.config),
+            config: JSON.parse(ruleUpdate.config) as (string | Record<string, unknown>)[],
             updatedAt: new Date().toISOString(),
         } satisfies RuleUpdate;
 
-        updateRule(selectedRule.name, update);
-    }
+        void updateRule(selectedRule.name, update);
+    };
 
     useEffect(() => {
         setRuleUpdate({
-            errorLevel: selectedRule.errorLevel,
-            handledByTypescript: selectedRule.handledByTypescript,
-            config: JSON.stringify(selectedRule.config, null, 4)
+            errorLevel: selectedRule?.errorLevel ?? 0,
+            handledByTypescript: selectedRule?.handledByTypescript ?? false,
+            config: JSON.stringify(selectedRule?.config, null, 4)
         });
     }, [selectedRule, setRuleUpdate]);
 
+    if (!selectedRule) {
+        return;
+    }
+
     return (
         <>
-            <div className="flex items-center justify-between">
-                <h3 className="text-3xl font-bold">{selectedRule.name}</h3>
-                <a className="cursor-pointer font-medium text-blue-600 hover:underline" href={selectedRule.url} target="_blank">Documentation</a>
+            <div className='flex items-center justify-between'>
+                <h3 className='text-3xl font-bold'>{selectedRule.name}</h3>
+                <a className='cursor-pointer font-medium text-blue-600 hover:underline' href={selectedRule.url} target='_blank'>Documentation</a>
             </div>
-            <Description className="text-sm text-gray-900" text={selectedRule.description} />
-            <hr className="my-2 h-px border-0 bg-gray-200" />
+            <Description className='text-sm text-gray-900' text={selectedRule.description} />
+            <hr className='my-2 h-px border-0 bg-gray-200' />
             <div className='flex items-center gap-x-2'>
-                <h2 className="mr-2 text-lg font-semibold text-gray-900">Error level</h2>
-                <Button text='off' color={ruleUpdate.errorLevel === 0 ? 'black' : 'gray'} size='small' onClick={() => setRuleUpdate((state) => ({ ...state, errorLevel: 0 }))} />
-                <Button text='warn' color={ruleUpdate.errorLevel === 1 ? 'orange' : 'gray'} size='small' onClick={() => setRuleUpdate((state) => ({ ...state, errorLevel: 1 }))} />
-                <Button text='error' color={ruleUpdate.errorLevel === 2 ? 'red' : 'gray'} size='small' onClick={() => setRuleUpdate((state) => ({ ...state, errorLevel: 2 }))} />
+                <h2 className='mr-2 text-lg font-semibold text-gray-900'>Error level</h2>
+                <Button color={ruleUpdate.errorLevel === 0 ? 'black' : 'gray'} size='small' text='off' onClick={() => setRuleUpdate((state) => ({ ...state, errorLevel: 0 }))} />
+                <Button color={ruleUpdate.errorLevel === 1 ? 'orange' : 'gray'} size='small' text='warn' onClick={() => setRuleUpdate((state) => ({ ...state, errorLevel: 1 }))} />
+                <Button color={ruleUpdate.errorLevel === 2 ? 'red' : 'gray'} size='small' text='error' onClick={() => setRuleUpdate((state) => ({ ...state, errorLevel: 2 }))} />
             </div>
-            <hr className="my-2 h-px border-0 bg-gray-200" />
+            <hr className='my-2 h-px border-0 bg-gray-200' />
 
-            <h2 className="mb-2 text-lg font-semibold text-gray-900">Rule details</h2>
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-2">
-                <RuleProp name="Deprecated" checked={selectedRule.deprecated} />
-                <RuleProp name="Recommended" checked={selectedRule.recommended ? true : false} />
-                <RuleProp name="Fixable" checked={selectedRule.fixable ? true : false} />
-                <RuleProp name="Has Suggestions" checked={selectedRule.hasSuggestions} />
-                <RuleProp name="Has Schema" checked={selectedRule.schema.length > 0} />
-                <RuleProp name="Extends base rule" checked={selectedRule.extendsBaseRule ? true : false} />
-                <RuleProp name="Requires type checking" checked={selectedRule.requiresTypeChecking} />
-                <label className="flex items-center gap-x-2 text-gray-900">
+            <h2 className='mb-2 text-lg font-semibold text-gray-900'>Rule details</h2>
+            <div className='grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-2'>
+                <RuleProp checked={selectedRule.deprecated} name='Deprecated' />
+                <RuleProp checked={selectedRule.recommended ? true : false} name='Recommended' />
+                <RuleProp checked={selectedRule.fixable ? true : false} name='Fixable' />
+                <RuleProp checked={selectedRule.hasSuggestions} name='Has Suggestions' />
+                <RuleProp checked={
+                    Array.isArray(selectedRule.schema) && selectedRule.schema.length > 0 ||
+                    typeof selectedRule.schema === 'object'
+                } name='Has Schema' />
+                <RuleProp checked={selectedRule.extendsBaseRule ? true : false} name='Extends base rule' />
+                <RuleProp checked={selectedRule.requiresTypeChecking} name='Requires type checking' />
+                <label className='flex items-center gap-x-2 text-gray-900'>
                     <input
-                        type="checkbox"
-                        className='size-4 rounded border-gray-300 bg-gray-100 accent-blue-500'
                         checked={ruleUpdate.handledByTypescript}
+                        className='size-4 rounded border-gray-300 bg-gray-100 accent-blue-500'
+                        type='checkbox'
                         onChange={(e) => setRuleUpdate((state) => ({ ...state, handledByTypescript: e.target.checked }))}
                     />
-                    <span className="text-sm font-medium">Handled by Typescript</span>
+                    <span className='text-sm font-medium'>Handled by Typescript</span>
                 </label>
             </div>
 
-            <hr className="my-2 h-px border-0 bg-gray-200" />
+            <hr className='my-2 h-px border-0 bg-gray-200' />
 
-            <h2 className="my-2 text-lg font-semibold text-gray-900">Rule configuration</h2>
+            <h2 className='my-2 text-lg font-semibold text-gray-900'>Rule configuration</h2>
 
             <CodeMirror
+                basicSetup={{ tabSize: 4, lineNumbers: true }}
                 className='text-sm'
                 extensions={extensions}
-                value={ruleUpdate.config}
-                onChange={onChange}
                 height='12rem'
                 theme={githubLight}
-                basicSetup={{ tabSize: 4, lineNumbers: true }}
+                value={ruleUpdate.config}
+                onChange={onChange}
             />
 
             <div className='mt-4 flex items-center justify-end gap-x-4'>
@@ -144,9 +152,9 @@ export const RuleEditor = () => {
                 <Button color='blue' text='Save' onClick={submitRule} />
             </div>
 
-            <hr className="my-2 h-px border-0 bg-gray-200" />
+            <hr className='my-2 h-px border-0 bg-gray-200' />
 
             <RuleFooter />
         </>
-    )
-}
+    );
+};

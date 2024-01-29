@@ -3,5 +3,5 @@ export const Description = ({ text, className }: { text: string, className?: str
 
     return (
         <span {...className && { className }} dangerouslySetInnerHTML={{ __html: html }}></span>
-    )
-}
+    );
+};

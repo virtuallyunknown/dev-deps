@@ -5,7 +5,7 @@ export const Main = () => {
     const [page] = useStore(state => [state.page]);
 
     return (
-        <main className="row-start-2 flex flex-col gap-y-4 overflow-hidden p-4">
+        <main className='row-start-2 flex flex-col gap-y-4 overflow-hidden p-4'>
             {page === 'rules' && <RuleList />}
             {page === 'upgrades' && <RuleUpgrades />}
             {page === 'additions' && <RuleAdditions />}
@@ -13,5 +13,5 @@ export const Main = () => {
             {page === 'project' && <ProjectDetails />}
             <Toasts />
         </main>
-    )
-}
+    );
+};

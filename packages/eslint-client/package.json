@@ -6,7 +6,7 @@
     "scripts": {
         "build": "node esbuild.js",
         "check": "tsc",
-        "copy": "echo copy generated files to root export directory"
+        "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0 --report-unused-disable-directives"
     },
     "dependencies": {
         "@codemirror/lang-json": "^6.0.1",
