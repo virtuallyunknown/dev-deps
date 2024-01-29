@@ -3,7 +3,8 @@
     "type": "module",
     "private": true,
     "scripts": {
-        "lint": "eslint src/** --max-warnings 0"
+        "check": "tsc",
+        "lint": "eslint 'src/**/*.ts' --max-warnings 0 --report-unused-disable-directives"
     },
     "dependencies": {
         "@virtuallyunknown/eslint-config": "0.0.1",
