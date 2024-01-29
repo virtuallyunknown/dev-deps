@@ -5,7 +5,8 @@
     "type": "module",
     "scripts": {
         "build": "node esbuild.js",
-        "check": "tsc"
+        "check": "tsc",
+        "lint": "eslint 'src/**/*.ts' --max-warnings 0 --report-unused-disable-directives"
     },
     "exports": {
         ".": {

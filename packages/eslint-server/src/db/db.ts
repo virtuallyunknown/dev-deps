@@ -1,10 +1,11 @@
-import { Linter } from 'eslint';
+import type { Linter } from 'eslint';
 import microdiff from 'microdiff';
 import { readFileSync, statSync, writeFileSync } from 'node:fs';
 import { ajv } from '../ajv.js';
 import { diffWrapper } from '../diff.js';
 import { getBaseRules, getDefaultRules, getPackageJSON } from '../libs.js';
-import { BaseRule, Database, ExtendedRule, Rule, RuleFilters, baseRuleSchema, databaseSchema, libraries, ruleSchema } from '../types.js';
+import type { BaseRule, Database, ExtendedRule, Rule, RuleFilters } from '../types.js';
+import { baseRuleSchema, databaseSchema, libraries, ruleSchema } from '../types.js';
 
 const libOrder = libraries.reduce<{ [key: string]: number }>((acc, curr, index) => {
     acc[curr] = index;
@@ -15,7 +16,7 @@ const libOrder = libraries.reduce<{ [key: string]: number }>((acc, curr, index) 
  * @see https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/eslint/index.d.ts#L936
  */
 const libConfigs = {
-    'default': {
+    default: {
         env: {
             es2024: true,
         },
@@ -26,7 +27,7 @@ const libConfigs = {
             sourceType: 'module',
         },
     },
-    'react': {
+    react: {
         plugins: ['react', 'react-hooks'],
         parserOptions: {
             ecmaFeatures: {
@@ -34,7 +35,7 @@ const libConfigs = {
             },
         }
     },
-    'stylistic': {
+    stylistic: {
         plugins: ['@stylistic'],
     }
 } as const satisfies Record<string, Linter.Config>;
@@ -66,11 +67,12 @@ class JSONDb {
         try {
             statSync(this.dbPath);
             return true;
-        } catch (error: any) {
-            if ('code' in error && error.code === 'ENOENT') {
+        }
+        catch (error) {
+            if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
                 return false;
             }
-            throw new Error(error);
+            throw new Error(String(error));
         }
     }
 
@@ -82,7 +84,7 @@ class JSONDb {
          * with the versions from package.json (the installed ones).
          */
         if (this.dbExists()) {
-            const dbJson = JSON.parse(readFileSync(this.dbPath, { encoding: 'utf-8' }));
+            const dbJson: unknown = JSON.parse(readFileSync(this.dbPath, { encoding: 'utf-8' }));
             const { rules } = databaseSchema.parse(dbJson);
 
             this.db = ({
@@ -123,9 +125,8 @@ class JSONDb {
                 (filters.recommended === null || filters.recommended === Boolean(rule.recommended)) &&
                 (filters.extendsBaseRule === null || filters.extendsBaseRule === Boolean(rule.extendsBaseRule)) &&
                 (filters.handledByTypescript === null || filters.handledByTypescript === rule.handledByTypescript) &&
-                (filters.hasConfiguration === null || (filters.hasConfiguration === true ? rule.config.length > 0 : rule.config.length < 1))
-            )
-        })
+                (filters.hasConfiguration === null || (filters.hasConfiguration === true ? rule.config.length > 0 : rule.config.length < 1)))
+        });
     }
 
     public getRuleByName(name: Database['rules'][number]['name']) {
@@ -140,7 +141,7 @@ class JSONDb {
         const ruleUpgrades = [];
 
         for (const rule of libRules) {
-            const dbRule = dbRules.find(dbRule => dbRule.name === rule.name);
+            const dbRule = dbRules.find(r => r.name === rule.name);
 
             if (!dbRule) {
                 ruleAdditions.push(rule);
@@ -153,14 +154,14 @@ class JSONDb {
                 ruleUpgrades.push({
                     upgrade: rule,
                     diffs: diffWrapper(diffs)
-                })
+                });
             }
         }
 
         return {
             ruleAdditions,
             ruleUpgrades
-        }
+        };
     }
 
     public addRule(ruleAddition: BaseRule) {
@@ -168,7 +169,7 @@ class JSONDb {
             return {
                 success: false,
                 errors: `Rule "${ruleAddition.name}" already exists database.`
-            }
+            };
         }
 
         const addedRule = ruleSchema.safeParse(ruleAddition);
@@ -177,7 +178,7 @@ class JSONDb {
             return {
                 success: false,
                 errors: addedRule.error
-            }
+            };
         }
 
         this.db = ({
@@ -187,7 +188,7 @@ class JSONDb {
 
         return {
             success: true
-        } as const
+        } as const;
     }
 
     public updateRule(ruleName: Database['rules'][number]['name'], ruleUpdate: ExtendedRule) {
@@ -197,7 +198,7 @@ class JSONDb {
             return {
                 success: false,
                 errors: `Rule "${ruleName}" not found in database.`
-            }
+            };
         }
 
         const validation = ajv.validateOptions(this.db.rules[ruleIndex].schema, ruleUpdate.config);
@@ -209,7 +210,7 @@ class JSONDb {
         this.db = ({
             ...this.db,
             rules: this.db.rules.with(ruleIndex, ({ ...this.db.rules[ruleIndex], ...ruleUpdate }))
-        })
+        });
 
         return validation;
     }
@@ -233,7 +234,7 @@ class JSONDb {
         this.db = ({
             ...this.db,
             rules: this.db.rules.with(ruleIndex, ({ ...this.db.rules[ruleIndex], ...ruleUpgrade }))
-        })
+        });
 
         return {
             success: true
@@ -251,7 +252,7 @@ class JSONDb {
                 errors.push({
                     ruleName: rule.name,
                     ...validation
-                })
+                });
             }
         }
 
@@ -260,7 +261,7 @@ class JSONDb {
 
     private createConfig(fileName: string, configType: keyof typeof libConfigs, ruleList: Rule[]) {
         const config = libConfigs[configType];
-        const rules = ruleList.reduce<{ [key: string]: number | [number, ...any[]] }>((acc, curr) => {
+        const rules = ruleList.reduce<{ [key: string]: number | [number, ...unknown[]] }>((acc, curr) => {
             return curr.config.length > 0
                 ? {
                     ...acc,
@@ -269,13 +270,13 @@ class JSONDb {
                 : {
                     ...acc,
                     [curr.name]: curr.errorLevel
-                }
+                };
         }, {});
 
         return {
             fileName,
             data: `module.exports = ${JSON.stringify({ ...config, rules: rules }, null, 4)}`
-        }
+        };
     }
 
     public writeConfiguration() {
@@ -285,8 +286,7 @@ class JSONDb {
                 'default',
                 this.db.rules.filter(r =>
                     r.errorLevel > 0 &&
-                    (r.library === 'eslint' || r.library === '@typescript-eslint/eslint-plugin' || r.library === 'eslint-plugin-unicorn')
-                )
+                    (r.library === 'eslint' || r.library === '@typescript-eslint/eslint-plugin' || r.library === 'eslint-plugin-unicorn'))
             ),
             this.createConfig(
                 'react',
@@ -296,17 +296,14 @@ class JSONDb {
                     (
                         r.library === 'eslint-plugin-react' ||
                         r.library === 'eslint-plugin-react-hooks'
-                    )
-
-                )
+                    ))
             ),
             this.createConfig(
                 'stylistic',
                 'stylistic',
                 this.db.rules.filter(r =>
                     r.errorLevel > 0 &&
-                    r.library === '@stylistic/eslint-plugin'
-                )
+                    r.library === '@stylistic/eslint-plugin')
             )
         ];
 
@@ -317,12 +314,13 @@ class JSONDb {
 
             return {
                 success: true
-            } as const
-        } catch (error) {
+            } as const;
+        }
+        catch (error) {
             return {
                 success: false,
                 errors: error
-            } as const
+            } as const;
         }
     }
 }

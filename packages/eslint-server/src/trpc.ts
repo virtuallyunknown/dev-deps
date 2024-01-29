@@ -1,5 +1,6 @@
 import { initTRPC } from '@trpc/server';
-import { CreateExpressContextOptions, createExpressMiddleware } from '@trpc/server/adapters/express';
+import type { CreateExpressContextOptions } from '@trpc/server/adapters/express';
+import { createExpressMiddleware } from '@trpc/server/adapters/express';
 import { z } from 'zod';
 import { db } from './db/db.js';
 import { baseRuleSchema, extendedRuleSchema, ruleFilterSchema, ruleSchema } from './types.js';
@@ -13,11 +14,11 @@ const appRouter = t.router({
     getDb: t.procedure
         .input(ruleFilterSchema)
         .query((opts) => {
-            return db.getDb(opts.input)
+            return db.getDb(opts.input);
         }),
     getUpgrades: t.procedure
         .query(() => {
-            return db.getRuleUpgrades()
+            return db.getRuleUpgrades();
         }),
     getRuleByName: t.procedure
         .input(ruleSchema.shape.name)
@@ -27,7 +28,7 @@ const appRouter = t.router({
     addRule: t.procedure
         .input(baseRuleSchema)
         .mutation(opts => {
-            return db.addRule(opts.input)
+            return db.addRule(opts.input);
         }),
     updateRule: t.procedure
         .input(z.object({
@@ -40,20 +41,20 @@ const appRouter = t.router({
     upgradeRule: t.procedure
         .input(baseRuleSchema)
         .mutation(opts => {
-            return db.upgradeRule(opts.input)
+            return db.upgradeRule(opts.input);
         }),
     validateAllRules: t.procedure
         .query(() => {
-            return db.validateAllRules()
+            return db.validateAllRules();
         }),
     writeConfig: t.procedure
         .query(() => {
-            return db.writeConfiguration()
+            return db.writeConfiguration();
         })
-})
+});
 
 export type AppRouter = typeof appRouter;
 export const trpcMiddleWare = createExpressMiddleware({
     router: appRouter,
     createContext,
-})
+});

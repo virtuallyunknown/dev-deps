@@ -25,6 +25,6 @@ export function diffWrapper(difference: Difference[]): Diff[] {
             ...diff,
             ...'value' in diff && { value: inspect(diff.value, { compact: false, depth: Number.POSITIVE_INFINITY }) },
             ...'oldValue' in diff && { oldValue: inspect(diff.oldValue, { compact: false, depth: Number.POSITIVE_INFINITY }) },
-        })
-    })
+        });
+    });
 }

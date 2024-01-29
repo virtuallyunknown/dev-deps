@@ -1,10 +1,10 @@
 import { execSync } from 'node:child_process';
-import type { BaseRule, RawLibData, Rule } from './types.js';
+import type { BaseRule, ESLintRule, RawLibData, Rule } from './types.js';
 import { baseRuleSchema, libraries, packageJSONSchema, ruleSchema } from './types.js';
 
 import eslintStyle from '@stylistic/eslint-plugin';
 import eslintTypeScript from '@typescript-eslint/eslint-plugin';
-import eslintBase from "eslint";
+import eslintBase from 'eslint';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintUnicorn from 'eslint-plugin-unicorn';
@@ -12,29 +12,29 @@ import eslintUnicorn from 'eslint-plugin-unicorn';
 const rules: RawLibData = {
     'eslint': {
         prefix: null,
-        rules: Object.fromEntries(new eslintBase.Linter().getRules())
+        rules: Object.fromEntries(new eslintBase.Linter().getRules()) as Record<string, ESLintRule>
     },
     '@typescript-eslint/eslint-plugin': {
         prefix: '@typescript-eslint',
-        rules: eslintTypeScript.rules
+        rules: eslintTypeScript.rules as Record<string, ESLintRule>
     },
     'eslint-plugin-unicorn': {
         prefix: 'unicorn',
-        rules: eslintUnicorn.rules
+        rules: eslintUnicorn.rules as Record<string, ESLintRule>
     },
     'eslint-plugin-react': {
         prefix: 'react',
-        rules: eslintReact.rules
+        rules: eslintReact.rules as Record<string, ESLintRule>
     },
     'eslint-plugin-react-hooks': {
         prefix: 'react-hooks',
-        rules: eslintReactHooks.rules
+        rules: eslintReactHooks.rules as Record<string, ESLintRule>
     },
     '@stylistic/eslint-plugin': {
         prefix: '@stylistic',
-        rules: eslintStyle.rules
+        rules: eslintStyle.rules as Record<string, ESLintRule>
     },
-}
+};
 
 /**
  * Create a flat array of all available rules,
@@ -57,8 +57,8 @@ export function getBaseRules() {
                 requiresTypeChecking: ruleData.meta.docs.requiresTypeChecking,
                 replacedBy: ruleData.meta.replacedBy,
                 schema: ruleData.meta.schema,
-            })
-        })
+            });
+        });
     });
 
     return ruleList.reduce<BaseRule[]>((acc, curr) => {
@@ -67,11 +67,11 @@ export function getBaseRules() {
         if (!parsed.success) {
             console.error(parsed.error);
             console.error(curr);
-            process.exit(1)
+            process.exit(1);
         }
 
-        return [...acc, parsed.data]
-    }, [])
+        return [...acc, parsed.data];
+    }, []);
 }
 
 export function getDefaultRules() {
@@ -83,26 +83,28 @@ export function getDefaultRules() {
         if (!parsed.success) {
             console.error(parsed.error);
             console.error(curr);
-            process.exit(1)
+            process.exit(1);
         }
 
-        return [...acc, parsed.data]
-    }, [])
+        return [...acc, parsed.data];
+    }, []);
 }
 
 export function getPackageJSON() {
-    const packageJSON = JSON.parse(execSync('npm ls --json', { encoding: 'utf-8' }));
-    const dependencies = packageJSON.dependencies;
+    const packageJSON = JSON.parse(execSync('npm ls --json', { encoding: 'utf-8' })) as unknown;
+    const parsedJSON = packageJSONSchema.parse(packageJSON);
 
-    const res = Object.entries(dependencies).reduce<any[]>((acc, [key, value]) => {
-        if (libraries.includes(key as any)) {
-            acc.push({ [key]: (value as any).version })
+    const dependencies = Object.entries(parsedJSON.dependencies).reduce<Record<string, string>[]>((acc, [key, value]) => {
+        if (libraries.includes(key as typeof libraries[number])) {
+            acc.push({ [key]: value.version });
         }
         return acc;
     }, []);
 
-    return packageJSONSchema.parse({
-        name: packageJSON.name,
-        dependencies: res
+    return ({
+        name: parsedJSON.name,
+        dependencies
     });
 }
+
+getPackageJSON();

@@ -6,17 +6,17 @@
 import Ajv from 'ajv';
 import metaSchema from 'ajv/lib/refs/json-schema-draft-04.json' assert { type: 'json' };
 import type { JSONSchema4 } from 'json-schema';
-import { Rule } from './types.js';
+import type { Rule } from './types.js';
 
 class _Ajv {
     private ajv: Ajv.Ajv;
 
     constructor() {
-        this.ajv = this.getAjv()
+        this.ajv = this.getAjv();
     }
 
     private getAjv() {
-        const ajv = new Ajv({
+        const _ajv = new Ajv({
             meta: false,
             useDefaults: false, // don't insert default values as they add noise?
             validateSchema: false,
@@ -25,12 +25,12 @@ class _Ajv {
             schemaId: 'auto',
         });
 
-        ajv.addMetaSchema(metaSchema);
+        _ajv.addMetaSchema(metaSchema);
 
         // @ts-expect-error -- this is an untyped part of the ajv API
-        ajv._opts.defaultMeta = metaSchema.id;
+        _ajv._opts.defaultMeta = metaSchema.id;
 
-        return ajv;
+        return _ajv;
     }
 
     private normalizeSchema(schema: JSONSchema4 | readonly JSONSchema4[]): JSONSchema4 {
@@ -58,13 +58,13 @@ class _Ajv {
         const normalizedSchema = this.normalizeSchema(schema);
         const valid = this.ajv.compile(normalizedSchema);
 
-        valid(options);
+        void valid(options);
 
         if (valid.errors) {
             return {
                 success: false,
                 errors: valid.errors
-            }
+            };
         }
 
         return {
