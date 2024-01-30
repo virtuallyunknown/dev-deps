@@ -223,10 +223,10 @@ importers:
   tools/release:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: '*'
+        specifier: 0.0.1
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: '*'
+        specifier: 0.0.1
         version: link:../../packages/tsconfig
       axios:
         specifier: ^1.6.5
@@ -245,10 +245,10 @@ importers:
   tools/rule-tester:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: '*'
+        specifier: 0.0.1
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: '*'
+        specifier: 0.0.1
         version: link:../../packages/tsconfig
 
 packages:
