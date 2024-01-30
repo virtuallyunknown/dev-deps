@@ -124,9 +124,11 @@ function getGitLogFormat() {
 }
 
 function getCommitDetail(subject: string, body?: string): CommitDetail {
-    const [, type, breakingInType] = subject.match(`^(${Object.keys(gitConfig.commitTypes).join('|')})(\\!?):`) ?? [];
-    const breaking = breakingInType === '!' || (body?.toLowerCase().startsWith('breaking change:') ?? false);
+    const commitTypes = Object.keys(gitConfig.commitTypes).join('|');
+    const { type, breakingInType } =
+        subject.match(`^(?<type>${commitTypes}+)(\\((?<scope>[^)]+)\\))?(?<breaking>\\!)?`)?.groups ?? {};
 
+    const breaking = breakingInType === '!' || (body?.toLowerCase().startsWith('breaking change:') ?? false);
     assertCommitType(type);
 
     return { type, breaking };
