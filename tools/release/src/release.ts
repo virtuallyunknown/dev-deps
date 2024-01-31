@@ -18,8 +18,8 @@ await generateChangelog({
     dryRun: dryRun,
     repo: 'dev-deps',
     owner: 'virtuallyunknown',
-    from: '0.0.0',
-    to: '0.0.1',
+    from: currentVersion,
+    to: newVersion,
 });
 
 await releasePublish({
