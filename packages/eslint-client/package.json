@@ -1,6 +1,6 @@
 {
     "name": "@virtuallyunknown/eslint-client",
-    "version": "0.0.0",
+    "version": "0.0.2",
     "private": true,
     "type": "module",
     "scripts": {
@@ -17,7 +17,7 @@
         "@uiw/codemirror-theme-github": "^4.21.21",
         "@uiw/codemirror-themes": "^4.21.21",
         "@uiw/react-codemirror": "^4.21.21",
-        "@virtuallyunknown/eslint-server": "0.0.0",
+        "@virtuallyunknown/eslint-server": "0.0.2",
         "clsx": "^2.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -29,9 +29,9 @@
         "@types/react": "^18.2.45",
         "@types/react-dom": "^18.2.18",
         "@typescript-eslint/parser": "^6.20.0",
-        "@virtuallyunknown/esbuild": "0.0.1",
-        "@virtuallyunknown/eslint-config": "0.0.1",
-        "@virtuallyunknown/tsconfig": "0.0.1",
+        "@virtuallyunknown/esbuild": "0.0.2",
+        "@virtuallyunknown/eslint-config": "0.0.2",
+        "@virtuallyunknown/tsconfig": "0.0.2",
         "eslint-plugin-tailwindcss": "^3.14.1",
         "typescript": "^5.3.3"
     }

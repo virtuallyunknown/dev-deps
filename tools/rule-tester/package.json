@@ -3,7 +3,8 @@
     "type": "module",
     "private": true,
     "dependencies": {
-        "@virtuallyunknown/eslint-config": "0.0.1",
-        "@virtuallyunknown/tsconfig": "0.0.1"
-    }
+        "@virtuallyunknown/eslint-config": "0.0.2",
+        "@virtuallyunknown/tsconfig": "0.0.2"
+    },
+    "version": "0.0.2"
 }

@@ -7,13 +7,14 @@
         "lint": "eslint 'src/**/*.ts' --max-warnings 0 --report-unused-disable-directives"
     },
     "dependencies": {
-        "@virtuallyunknown/eslint-config": "0.0.1",
-        "@virtuallyunknown/tsconfig": "0.0.1",
+        "@virtuallyunknown/eslint-config": "0.0.2",
+        "@virtuallyunknown/tsconfig": "0.0.2",
         "axios": "^1.6.7",
         "enquirer": "^2.4.1",
         "semver": "^7.5.4"
     },
     "devDependencies": {
         "@types/semver": "^7.5.6"
-    }
+    },
+    "version": "0.0.2"
 }
