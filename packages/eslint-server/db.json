@@ -12167,7 +12167,7 @@
                         },
                         "ignoreOverrideMethods": {
                             "type": "boolean",
-                            "description": "Ingore members marked with the `override` modifier"
+                            "description": "Ignore members marked with the `override` modifier"
                         },
                         "ignoreClassesThatImplementAnInterface": {
                             "oneOf": [
@@ -12796,7 +12796,7 @@
                             "type": "boolean"
                         },
                         "allowTypedFunctionExpressions": {
-                            "description": "Whether to ignore type annotations on the variable of a function expresion.",
+                            "description": "Whether to ignore type annotations on the variable of a function expression.",
                             "type": "boolean"
                         }
                     },
