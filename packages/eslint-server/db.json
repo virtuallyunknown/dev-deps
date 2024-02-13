@@ -2,10 +2,10 @@
     "name": "@virtuallyunknown/eslint-server",
     "dependencies": [
         {
-            "@stylistic/eslint-plugin": "1.5.4"
+            "@stylistic/eslint-plugin": "1.6.1"
         },
         {
-            "@typescript-eslint/eslint-plugin": "6.20.0"
+            "@typescript-eslint/eslint-plugin": "7.0.1"
         },
         {
             "eslint-plugin-react-hooks": "4.6.0"
@@ -14,7 +14,7 @@
             "eslint-plugin-react": "7.33.2"
         },
         {
-            "eslint-plugin-unicorn": "50.0.1"
+            "eslint-plugin-unicorn": "51.0.1"
         },
         {
             "eslint": "8.56.0"
@@ -12142,7 +12142,7 @@
             "url": "https://typescript-eslint.io/rules/class-methods-use-this",
             "library": "@typescript-eslint/eslint-plugin",
             "type": "suggestion",
-            "fixable": "code",
+            "fixable": null,
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
@@ -16882,7 +16882,7 @@
             "url": "https://typescript-eslint.io/rules/no-confusing-non-null-assertion",
             "library": "@typescript-eslint/eslint-plugin",
             "type": "problem",
-            "fixable": "code",
+            "fixable": null,
             "deprecated": false,
             "recommended": "stylistic",
             "hasSuggestions": true,
@@ -19318,6 +19318,26 @@
             "note": null
         },
         {
+            "name": "@typescript-eslint/prefer-find",
+            "description": "Enforce the use of Array.prototype.find() over Array.prototype.filter() followed by [0] when looking for a single result",
+            "url": "https://typescript-eslint.io/rules/prefer-find",
+            "library": "@typescript-eslint/eslint-plugin",
+            "type": "suggestion",
+            "fixable": null,
+            "deprecated": false,
+            "recommended": false,
+            "hasSuggestions": true,
+            "extendsBaseRule": false,
+            "requiresTypeChecking": true,
+            "replacedBy": [],
+            "schema": [],
+            "errorLevel": 0,
+            "handledByTypescript": false,
+            "config": [],
+            "updatedAt": "2024-02-13T11:00:51.698Z",
+            "note": null
+        },
+        {
             "name": "@typescript-eslint/prefer-for-of",
             "description": "Enforce the use of `for-of` loop over the standard `for` loop where possible",
             "url": "https://typescript-eslint.io/rules/prefer-for-of",
@@ -20765,7 +20785,7 @@
         {
             "name": "unicorn/better-regex",
             "description": "Improve regexes by making them shorter, consistent, and safer.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/better-regex.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/better-regex.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -20796,7 +20816,7 @@
         {
             "name": "unicorn/catch-error-name",
             "description": "Enforce a specific parameter name in catch clauses.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/catch-error-name.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/catch-error-name.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -20830,7 +20850,7 @@
         {
             "name": "unicorn/consistent-destructuring",
             "description": "Use destructured variables over properties.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/consistent-destructuring.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/consistent-destructuring.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -20850,7 +20870,7 @@
         {
             "name": "unicorn/consistent-function-scoping",
             "description": "Move function definitions to the highest possible scope.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/consistent-function-scoping.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/consistent-function-scoping.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -20881,7 +20901,7 @@
         {
             "name": "unicorn/custom-error-definition",
             "description": "Enforce correct `Error` subclassing.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/custom-error-definition.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/custom-error-definition.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": "code",
@@ -20901,7 +20921,7 @@
         {
             "name": "unicorn/empty-brace-spaces",
             "description": "Enforce no spaces between braces.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/empty-brace-spaces.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/empty-brace-spaces.md",
             "library": "eslint-plugin-unicorn",
             "type": "layout",
             "fixable": "whitespace",
@@ -20921,7 +20941,7 @@
         {
             "name": "unicorn/error-message",
             "description": "Enforce passing a `message` value when creating a built-in error.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/error-message.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/error-message.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -20941,7 +20961,7 @@
         {
             "name": "unicorn/escape-case",
             "description": "Require escape sequences to use uppercase values.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/escape-case.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/escape-case.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -20961,7 +20981,7 @@
         {
             "name": "unicorn/expiring-todo-comments",
             "description": "Add expiration conditions to TODO comments.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/expiring-todo-comments.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/expiring-todo-comments.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21010,7 +21030,7 @@
         {
             "name": "unicorn/explicit-length-check",
             "description": "Enforce explicitly comparing the `length` or `size` property of a value.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/explicit-length-check.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/explicit-length-check.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": "code",
@@ -21044,7 +21064,7 @@
         {
             "name": "unicorn/filename-case",
             "description": "Enforce a case style for filenames.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/filename-case.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/filename-case.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21112,7 +21132,7 @@
         {
             "name": "unicorn/import-index",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#import-index",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#import-index",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -21132,7 +21152,7 @@
         {
             "name": "unicorn/import-style",
             "description": "Enforce specific import styles per module.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/import-style.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/import-style.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -21207,7 +21227,7 @@
         {
             "name": "unicorn/new-for-builtins",
             "description": "Enforce the use of `new` for all builtins, except `String`, `Number`, `Boolean`, `Symbol` and `BigInt`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/new-for-builtins.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/new-for-builtins.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21227,7 +21247,7 @@
         {
             "name": "unicorn/no-abusive-eslint-disable",
             "description": "Enforce specifying rules to disable in `eslint-disable` comments.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-abusive-eslint-disable.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-abusive-eslint-disable.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21247,7 +21267,7 @@
         {
             "name": "unicorn/no-array-callback-reference",
             "description": "Prevent passing a function reference directly to iterator methods.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-array-callback-reference.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-array-callback-reference.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -21267,7 +21287,7 @@
         {
             "name": "unicorn/no-array-for-each",
             "description": "Prefer `for…of` over the `forEach` method.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-array-for-each.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-array-for-each.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21287,7 +21307,7 @@
         {
             "name": "unicorn/no-array-instanceof",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#no-array-instanceof",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#no-array-instanceof",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -21309,7 +21329,7 @@
         {
             "name": "unicorn/no-array-method-this-argument",
             "description": "Disallow using the `this` argument in array methods.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-array-method-this-argument.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-array-method-this-argument.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21329,7 +21349,7 @@
         {
             "name": "unicorn/no-array-push-push",
             "description": "Enforce combining multiple `Array#push()` into one call.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-array-push-push.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-array-push-push.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21360,7 +21380,7 @@
         {
             "name": "unicorn/no-array-reduce",
             "description": "Disallow `Array#reduce()` and `Array#reduceRight()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-array-reduce.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-array-reduce.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21391,7 +21411,7 @@
         {
             "name": "unicorn/no-await-expression-member",
             "description": "Disallow member access from await expression.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-await-expression-member.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-await-expression-member.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21411,7 +21431,7 @@
         {
             "name": "unicorn/no-console-spaces",
             "description": "Do not use leading/trailing space between `console.log` parameters.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-console-spaces.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-console-spaces.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21431,7 +21451,7 @@
         {
             "name": "unicorn/no-document-cookie",
             "description": "Do not use `document.cookie` directly.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-document-cookie.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-document-cookie.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -21451,7 +21471,7 @@
         {
             "name": "unicorn/no-empty-file",
             "description": "Disallow empty files.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-empty-file.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-empty-file.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21471,7 +21491,7 @@
         {
             "name": "unicorn/no-fn-reference-in-iterator",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#no-fn-reference-in-iterator",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#no-fn-reference-in-iterator",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -21493,7 +21513,7 @@
         {
             "name": "unicorn/no-for-loop",
             "description": "Do not use a `for` loop that can be replaced with a `for-of` loop.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-for-loop.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-for-loop.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21513,7 +21533,7 @@
         {
             "name": "unicorn/no-hex-escape",
             "description": "Enforce the use of Unicode escapes instead of hexadecimal escapes.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-hex-escape.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-hex-escape.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21533,7 +21553,7 @@
         {
             "name": "unicorn/no-instanceof-array",
             "description": "Require `Array.isArray()` instead of `instanceof Array`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-instanceof-array.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-instanceof-array.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21553,7 +21573,7 @@
         {
             "name": "unicorn/no-invalid-remove-event-listener",
             "description": "Prevent calling `EventTarget#removeEventListener()` with the result of an expression.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-invalid-remove-event-listener.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-invalid-remove-event-listener.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -21573,7 +21593,7 @@
         {
             "name": "unicorn/no-keyword-prefix",
             "description": "Disallow identifiers starting with `new` or `class`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-keyword-prefix.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-keyword-prefix.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21616,7 +21636,7 @@
         {
             "name": "unicorn/no-lonely-if",
             "description": "Disallow `if` statements as the only statement in `if` blocks without `else`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-lonely-if.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-lonely-if.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21636,7 +21656,7 @@
         {
             "name": "unicorn/no-negated-condition",
             "description": "Disallow negated conditions.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-negated-condition.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-negated-condition.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21656,7 +21676,7 @@
         {
             "name": "unicorn/no-nested-ternary",
             "description": "Disallow nested ternary expressions.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-nested-ternary.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-nested-ternary.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21676,7 +21696,7 @@
         {
             "name": "unicorn/no-new-array",
             "description": "Disallow `new Array()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-new-array.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-new-array.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21696,7 +21716,7 @@
         {
             "name": "unicorn/no-new-buffer",
             "description": "Enforce the use of `Buffer.from()` and `Buffer.alloc()` instead of the deprecated `new Buffer()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-new-buffer.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-new-buffer.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": "code",
@@ -21716,7 +21736,7 @@
         {
             "name": "unicorn/no-null",
             "description": "Disallow the use of the `null` literal.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-null.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-null.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21747,7 +21767,7 @@
         {
             "name": "unicorn/no-object-as-default-parameter",
             "description": "Disallow the use of objects as default parameters.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-object-as-default-parameter.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-object-as-default-parameter.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -21767,7 +21787,7 @@
         {
             "name": "unicorn/no-process-exit",
             "description": "Disallow `process.exit()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-process-exit.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-process-exit.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21787,7 +21807,7 @@
         {
             "name": "unicorn/no-reduce",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#no-reduce",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#no-reduce",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -21809,7 +21829,7 @@
         {
             "name": "unicorn/no-static-only-class",
             "description": "Disallow classes that only have static members.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-static-only-class.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-static-only-class.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21829,7 +21849,7 @@
         {
             "name": "unicorn/no-thenable",
             "description": "Disallow `then` property.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-thenable.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-thenable.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -21849,7 +21869,7 @@
         {
             "name": "unicorn/no-this-assignment",
             "description": "Disallow assigning `this` to a variable.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-this-assignment.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-this-assignment.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21869,7 +21889,7 @@
         {
             "name": "unicorn/no-typeof-undefined",
             "description": "Disallow comparing `undefined` using `typeof`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-typeof-undefined.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-typeof-undefined.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21900,7 +21920,7 @@
         {
             "name": "unicorn/no-unnecessary-await",
             "description": "Disallow awaiting non-promise values.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-unnecessary-await.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-unnecessary-await.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21920,7 +21940,7 @@
         {
             "name": "unicorn/no-unnecessary-polyfills",
             "description": "Enforce the use of built-in methods instead of unnecessary polyfills.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-unnecessary-polyfills.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-unnecessary-polyfills.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -21963,7 +21983,7 @@
         {
             "name": "unicorn/no-unreadable-array-destructuring",
             "description": "Disallow unreadable array destructuring.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-unreadable-array-destructuring.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-unreadable-array-destructuring.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -21983,7 +22003,7 @@
         {
             "name": "unicorn/no-unreadable-iife",
             "description": "Disallow unreadable IIFEs.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-unreadable-iife.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-unreadable-iife.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22003,7 +22023,7 @@
         {
             "name": "unicorn/no-unsafe-regex",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#no-unsafe-regex",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#no-unsafe-regex",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -22023,7 +22043,7 @@
         {
             "name": "unicorn/no-unused-properties",
             "description": "Disallow unused object properties.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-unused-properties.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-unused-properties.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22043,7 +22063,7 @@
         {
             "name": "unicorn/no-useless-fallback-in-spread",
             "description": "Disallow useless fallback when spreading in object literals.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-useless-fallback-in-spread.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-useless-fallback-in-spread.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22063,7 +22083,7 @@
         {
             "name": "unicorn/no-useless-length-check",
             "description": "Disallow useless array length check.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-useless-length-check.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-useless-length-check.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22083,7 +22103,7 @@
         {
             "name": "unicorn/no-useless-promise-resolve-reject",
             "description": "Disallow returning/yielding `Promise.resolve/reject()` in async functions or promise callbacks",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-useless-promise-resolve-reject.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-useless-promise-resolve-reject.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22103,7 +22123,7 @@
         {
             "name": "unicorn/no-useless-spread",
             "description": "Disallow unnecessary spread.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-useless-spread.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-useless-spread.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22123,7 +22143,7 @@
         {
             "name": "unicorn/no-useless-switch-case",
             "description": "Disallow useless case in switch statements.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-useless-switch-case.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-useless-switch-case.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22143,7 +22163,7 @@
         {
             "name": "unicorn/no-useless-undefined",
             "description": "Disallow useless `undefined`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-useless-undefined.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-useless-undefined.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22176,7 +22196,7 @@
         {
             "name": "unicorn/no-zero-fractions",
             "description": "Disallow number literals with zero fractions or dangling dots.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/no-zero-fractions.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/no-zero-fractions.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22196,7 +22216,7 @@
         {
             "name": "unicorn/number-literal-case",
             "description": "Enforce proper case for numeric literals.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/number-literal-case.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/number-literal-case.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22216,7 +22236,7 @@
         {
             "name": "unicorn/numeric-separators-style",
             "description": "Enforce the style of numeric separators by correctly grouping digits.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/numeric-separators-style.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/numeric-separators-style.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22323,7 +22343,7 @@
         {
             "name": "unicorn/prefer-add-event-listener",
             "description": "Prefer `.addEventListener()` and `.removeEventListener()` over `on`-functions.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-add-event-listener.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-add-event-listener.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22357,7 +22377,7 @@
         {
             "name": "unicorn/prefer-array-find",
             "description": "Prefer `.find(…)` and `.findLast(…)` over the first or last element from `.filter(…)`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-array-find.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-array-find.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22388,7 +22408,7 @@
         {
             "name": "unicorn/prefer-array-flat",
             "description": "Prefer `Array#flat()` over legacy techniques to flatten arrays.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-array-flat.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-array-flat.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22419,7 +22439,7 @@
         {
             "name": "unicorn/prefer-array-flat-map",
             "description": "Prefer `.flatMap(…)` over `.map(…).flat()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-array-flat-map.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-array-flat-map.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22439,7 +22459,7 @@
         {
             "name": "unicorn/prefer-array-index-of",
             "description": "Prefer `Array#{indexOf,lastIndexOf}()` over `Array#{findIndex,findLastIndex}()` when looking for the index of an item.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-array-index-of.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-array-index-of.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22459,7 +22479,7 @@
         {
             "name": "unicorn/prefer-array-some",
             "description": "Prefer `.some(…)` over `.filter(…).length` check and `.{find,findLast}(…)`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-array-some.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-array-some.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22479,7 +22499,7 @@
         {
             "name": "unicorn/prefer-at",
             "description": "Prefer `.at()` method for index access and `String#charAt()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-at.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-at.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22514,7 +22534,7 @@
         {
             "name": "unicorn/prefer-blob-reading-methods",
             "description": "Prefer `Blob#arrayBuffer()` over `FileReader#readAsArrayBuffer(…)` and `Blob#text()` over `FileReader#readAsText(…)`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-blob-reading-methods.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-blob-reading-methods.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22534,7 +22554,7 @@
         {
             "name": "unicorn/prefer-code-point",
             "description": "Prefer `String#codePointAt(…)` over `String#charCodeAt(…)` and `String.fromCodePoint(…)` over `String.fromCharCode(…)`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-code-point.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-code-point.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22554,7 +22574,7 @@
         {
             "name": "unicorn/prefer-dataset",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-dataset",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-dataset",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -22576,7 +22596,7 @@
         {
             "name": "unicorn/prefer-date-now",
             "description": "Prefer `Date.now()` to get the number of milliseconds since the Unix Epoch.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-date-now.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-date-now.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22596,7 +22616,7 @@
         {
             "name": "unicorn/prefer-default-parameters",
             "description": "Prefer default parameters over reassignment.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-default-parameters.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-default-parameters.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22616,7 +22636,7 @@
         {
             "name": "unicorn/prefer-dom-node-append",
             "description": "Prefer `Node#append()` over `Node#appendChild()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-dom-node-append.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-dom-node-append.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22636,7 +22656,7 @@
         {
             "name": "unicorn/prefer-dom-node-dataset",
             "description": "Prefer using `.dataset` on DOM elements over calling attribute methods.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-dom-node-dataset.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-dom-node-dataset.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22656,7 +22676,7 @@
         {
             "name": "unicorn/prefer-dom-node-remove",
             "description": "Prefer `childNode.remove()` over `parentNode.removeChild(childNode)`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-dom-node-remove.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-dom-node-remove.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22676,7 +22696,7 @@
         {
             "name": "unicorn/prefer-dom-node-text-content",
             "description": "Prefer `.textContent` over `.innerText`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-dom-node-text-content.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-dom-node-text-content.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22696,7 +22716,7 @@
         {
             "name": "unicorn/prefer-event-key",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-event-key",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-event-key",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -22718,7 +22738,7 @@
         {
             "name": "unicorn/prefer-event-target",
             "description": "Prefer `EventTarget` over `EventEmitter`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-event-target.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-event-target.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22738,7 +22758,7 @@
         {
             "name": "unicorn/prefer-exponentiation-operator",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-exponentiation-operator",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-exponentiation-operator",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -22760,7 +22780,7 @@
         {
             "name": "unicorn/prefer-export-from",
             "description": "Prefer `export…from` when re-exporting.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-export-from.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-export-from.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22791,7 +22811,7 @@
         {
             "name": "unicorn/prefer-flat-map",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-flat-map",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-flat-map",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -22813,7 +22833,7 @@
         {
             "name": "unicorn/prefer-includes",
             "description": "Prefer `.includes()` over `.indexOf()` and `Array#some()` when checking for existence or non-existence.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-includes.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-includes.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22833,7 +22853,7 @@
         {
             "name": "unicorn/prefer-json-parse-buffer",
             "description": "Prefer reading a JSON file as a buffer.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-json-parse-buffer.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-json-parse-buffer.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22853,7 +22873,7 @@
         {
             "name": "unicorn/prefer-keyboard-event-key",
             "description": "Prefer `KeyboardEvent#key` over `KeyboardEvent#keyCode`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-keyboard-event-key.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-keyboard-event-key.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22873,7 +22893,7 @@
         {
             "name": "unicorn/prefer-logical-operator-over-ternary",
             "description": "Prefer using a logical operator over a ternary.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-logical-operator-over-ternary.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-logical-operator-over-ternary.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -22893,7 +22913,7 @@
         {
             "name": "unicorn/prefer-math-trunc",
             "description": "Enforce the use of `Math.trunc` instead of bitwise operators.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-math-trunc.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-math-trunc.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22913,7 +22933,7 @@
         {
             "name": "unicorn/prefer-modern-dom-apis",
             "description": "Prefer `.before()` over `.insertBefore()`, `.replaceWith()` over `.replaceChild()`, prefer one of `.before()`, `.after()`, `.append()` or `.prepend()` over `insertAdjacentText()` and `insertAdjacentElement()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-modern-dom-apis.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-modern-dom-apis.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22933,7 +22953,7 @@
         {
             "name": "unicorn/prefer-modern-math-apis",
             "description": "Prefer modern `Math` APIs over legacy patterns.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-modern-math-apis.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-modern-math-apis.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22953,7 +22973,7 @@
         {
             "name": "unicorn/prefer-module",
             "description": "Prefer JavaScript modules (ESM) over CommonJS.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-module.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-module.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22973,7 +22993,7 @@
         {
             "name": "unicorn/prefer-native-coercion-functions",
             "description": "Prefer using `String`, `Number`, `BigInt`, `Boolean`, and `Symbol` directly.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-native-coercion-functions.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-native-coercion-functions.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -22993,7 +23013,7 @@
         {
             "name": "unicorn/prefer-negative-index",
             "description": "Prefer negative index over `.length - index` when possible.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-negative-index.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-negative-index.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23013,7 +23033,7 @@
         {
             "name": "unicorn/prefer-node-append",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-node-append",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-node-append",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23035,7 +23055,7 @@
         {
             "name": "unicorn/prefer-node-protocol",
             "description": "Prefer using the `node:` protocol when importing Node.js builtin modules.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-node-protocol.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-node-protocol.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23055,7 +23075,7 @@
         {
             "name": "unicorn/prefer-node-remove",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-node-remove",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-node-remove",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23077,7 +23097,7 @@
         {
             "name": "unicorn/prefer-number-properties",
             "description": "Prefer `Number` static properties over global ones.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-number-properties.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-number-properties.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23108,7 +23128,7 @@
         {
             "name": "unicorn/prefer-object-from-entries",
             "description": "Prefer using `Object.fromEntries(…)` to transform a list of key-value pairs into an object.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-object-from-entries.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-object-from-entries.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23139,7 +23159,7 @@
         {
             "name": "unicorn/prefer-object-has-own",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-object-has-own",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-object-has-own",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23161,7 +23181,7 @@
         {
             "name": "unicorn/prefer-optional-catch-binding",
             "description": "Prefer omitting the `catch` binding parameter.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-optional-catch-binding.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-optional-catch-binding.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23181,7 +23201,7 @@
         {
             "name": "unicorn/prefer-prototype-methods",
             "description": "Prefer borrowing methods from the prototype instead of the instance.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-prototype-methods.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-prototype-methods.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23201,7 +23221,7 @@
         {
             "name": "unicorn/prefer-query-selector",
             "description": "Prefer `.querySelector()` over `.getElementById()`, `.querySelectorAll()` over `.getElementsByClassName()` and `.getElementsByTagName()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-query-selector.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-query-selector.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23221,7 +23241,7 @@
         {
             "name": "unicorn/prefer-reflect-apply",
             "description": "Prefer `Reflect.apply()` over `Function#apply()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-reflect-apply.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-reflect-apply.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23241,7 +23261,7 @@
         {
             "name": "unicorn/prefer-regexp-test",
             "description": "Prefer `RegExp#test()` over `String#match()` and `RegExp#exec()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-regexp-test.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-regexp-test.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23261,7 +23281,7 @@
         {
             "name": "unicorn/prefer-replace-all",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-replace-all",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-replace-all",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23283,7 +23303,7 @@
         {
             "name": "unicorn/prefer-set-has",
             "description": "Prefer `Set#has()` over `Array#includes()` when checking for existence or non-existence.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-set-has.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-set-has.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23303,7 +23323,7 @@
         {
             "name": "unicorn/prefer-set-size",
             "description": "Prefer using `Set#size` instead of `Array#length`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-set-size.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-set-size.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23323,7 +23343,7 @@
         {
             "name": "unicorn/prefer-spread",
             "description": "Prefer the spread operator over `Array.from(…)`, `Array#concat(…)`, `Array#{slice,toSpliced}()` and `String#split('')`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-spread.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-spread.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23343,7 +23363,7 @@
         {
             "name": "unicorn/prefer-starts-ends-with",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-starts-ends-with",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-starts-ends-with",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23365,7 +23385,7 @@
         {
             "name": "unicorn/prefer-string-replace-all",
             "description": "Prefer `String#replaceAll()` over regex searches with the global flag.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-string-replace-all.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-string-replace-all.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23385,7 +23405,7 @@
         {
             "name": "unicorn/prefer-string-slice",
             "description": "Prefer `String#slice()` over `String#substr()` and `String#substring()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-string-slice.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-string-slice.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23405,7 +23425,7 @@
         {
             "name": "unicorn/prefer-string-starts-ends-with",
             "description": "Prefer `String#startsWith()` & `String#endsWith()` over `RegExp#test()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-string-starts-ends-with.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-string-starts-ends-with.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23425,7 +23445,7 @@
         {
             "name": "unicorn/prefer-string-trim-start-end",
             "description": "Prefer `String#trimStart()` / `String#trimEnd()` over `String#trimLeft()` / `String#trimRight()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-string-trim-start-end.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-string-trim-start-end.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23445,7 +23465,7 @@
         {
             "name": "unicorn/prefer-switch",
             "description": "Prefer `switch` over multiple `else-if`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-switch.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-switch.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23485,7 +23505,7 @@
         {
             "name": "unicorn/prefer-ternary",
             "description": "Prefer ternary expressions over simple `if-else` statements.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-ternary.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-ternary.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23513,7 +23533,7 @@
         {
             "name": "unicorn/prefer-text-content",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-text-content",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-text-content",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23535,7 +23555,7 @@
         {
             "name": "unicorn/prefer-top-level-await",
             "description": "Prefer top-level await over top-level promises and async function calls.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-top-level-await.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-top-level-await.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": null,
@@ -23555,7 +23575,7 @@
         {
             "name": "unicorn/prefer-trim-start-end",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#prefer-trim-start-end",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#prefer-trim-start-end",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23577,7 +23597,7 @@
         {
             "name": "unicorn/prefer-type-error",
             "description": "Enforce throwing `TypeError` in type checking conditions.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prefer-type-error.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prefer-type-error.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23597,7 +23617,7 @@
         {
             "name": "unicorn/prevent-abbreviations",
             "description": "Prevent abbreviations.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/prevent-abbreviations.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/prevent-abbreviations.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23696,7 +23716,7 @@
         {
             "name": "unicorn/regex-shorthand",
             "description": "No rule description provided by the library",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/deprecated-rules.md#regex-shorthand",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/deprecated-rules.md#regex-shorthand",
             "library": "eslint-plugin-unicorn",
             "type": null,
             "fixable": null,
@@ -23718,7 +23738,7 @@
         {
             "name": "unicorn/relative-url-style",
             "description": "Enforce consistent relative URL style.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/relative-url-style.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/relative-url-style.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23746,7 +23766,7 @@
         {
             "name": "unicorn/require-array-join-separator",
             "description": "Enforce using the separator argument with `Array#join()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/require-array-join-separator.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/require-array-join-separator.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23766,7 +23786,7 @@
         {
             "name": "unicorn/require-number-to-fixed-digits-argument",
             "description": "Enforce using the digits argument with `Number#toFixed()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/require-number-to-fixed-digits-argument.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/require-number-to-fixed-digits-argument.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23786,7 +23806,7 @@
         {
             "name": "unicorn/require-post-message-target-origin",
             "description": "Enforce using the `targetOrigin` argument with `window.postMessage()`.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/require-post-message-target-origin.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/require-post-message-target-origin.md",
             "library": "eslint-plugin-unicorn",
             "type": "problem",
             "fixable": null,
@@ -23806,7 +23826,7 @@
         {
             "name": "unicorn/string-content",
             "description": "Enforce better string content.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/string-content.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/string-content.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23861,7 +23881,7 @@
         {
             "name": "unicorn/switch-case-braces",
             "description": "Enforce consistent brace style for `case` clauses.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/switch-case-braces.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/switch-case-braces.md",
             "library": "eslint-plugin-unicorn",
             "type": "layout",
             "fixable": "code",
@@ -23888,7 +23908,7 @@
         {
             "name": "unicorn/template-indent",
             "description": "Fix whitespace-insensitive template indentation.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/template-indent.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/template-indent.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23955,7 +23975,7 @@
         {
             "name": "unicorn/text-encoding-identifier-case",
             "description": "Enforce consistent case for text encoding identifiers.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/text-encoding-identifier-case.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/text-encoding-identifier-case.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -23975,7 +23995,7 @@
         {
             "name": "unicorn/throw-new-error",
             "description": "Require `new` when throwing an error.",
-            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v50.0.1/docs/rules/throw-new-error.md",
+            "url": "https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v51.0.1/docs/rules/throw-new-error.md",
             "library": "eslint-plugin-unicorn",
             "type": "suggestion",
             "fixable": "code",
@@ -29661,6 +29681,49 @@
             "note": null
         },
         {
+            "name": "@stylistic/jsx-pascal-case",
+            "description": "Enforce PascalCase for user-defined JSX components",
+            "url": "https://eslint.style/rules/jsx/jsx-pascal-case",
+            "library": "@stylistic/eslint-plugin",
+            "type": "suggestion",
+            "fixable": null,
+            "deprecated": false,
+            "recommended": false,
+            "hasSuggestions": false,
+            "extendsBaseRule": false,
+            "requiresTypeChecking": false,
+            "replacedBy": [],
+            "schema": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "allowAllCaps": {
+                            "type": "boolean"
+                        },
+                        "allowLeadingUnderscore": {
+                            "type": "boolean"
+                        },
+                        "allowNamespace": {
+                            "type": "boolean"
+                        },
+                        "ignore": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array",
+                            "uniqueItems": true
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            ],
+            "errorLevel": 0,
+            "handledByTypescript": false,
+            "config": [],
+            "updatedAt": "2024-02-13T11:00:51.698Z",
+            "note": null
+        },
+        {
             "name": "@stylistic/jsx-props-no-multi-spaces",
             "description": "Disallow multiple spaces between inline JSX props",
             "url": "https://eslint.style/rules/jsx/jsx-props-no-multi-spaces",
@@ -32839,15 +32902,15 @@
         },
         {
             "name": "@stylistic/quote-props",
-            "description": "Require quotes around object literal property names",
-            "url": "https://eslint.style/rules/js/quote-props",
+            "description": "Require quotes around object literal, type literal, interfaces and enums property names",
+            "url": "https://eslint.style/rules/ts/quote-props",
             "library": "@stylistic/eslint-plugin",
             "type": "layout",
             "fixable": "code",
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": false,
+            "extendsBaseRule": true,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
