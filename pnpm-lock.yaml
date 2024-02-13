@@ -81,7 +81,7 @@ importers:
         specifier: ^4.21.21
         version: 4.21.21(@babel/runtime@7.23.9)(@codemirror/autocomplete@6.12.0)(@codemirror/language@6.10.1)(@codemirror/lint@6.5.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.24.0)(codemirror@6.0.1)(react-dom@18.2.0)(react@18.2.0)
       '@virtuallyunknown/eslint-server':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../eslint-server
       clsx:
         specifier: ^2.0.0
@@ -112,13 +112,13 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1(eslint@8.56.0)(typescript@5.3.3)
       '@virtuallyunknown/esbuild':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../esbuild
       '@virtuallyunknown/eslint-config':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../tsconfig
       eslint-plugin-tailwindcss:
         specifier: ^3.14.2
@@ -209,13 +209,13 @@ importers:
         specifier: ^7.0.15
         version: 7.0.15
       '@virtuallyunknown/esbuild':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../esbuild
       '@virtuallyunknown/eslint-config':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../tsconfig
 
   packages/tsconfig: {}
@@ -223,10 +223,10 @@ importers:
   tools/release:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../../packages/tsconfig
       axios:
         specifier: ^1.6.7
@@ -245,10 +245,10 @@ importers:
   tools/rule-tester:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.0.2
+        specifier: 0.0.3
         version: link:../../packages/tsconfig
 
 packages:

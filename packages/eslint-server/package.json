@@ -1,6 +1,6 @@
 {
     "name": "@virtuallyunknown/eslint-server",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": true,
     "type": "module",
     "scripts": {
@@ -47,8 +47,8 @@
         "@types/eslint": "^8.56.2",
         "@types/express": "^4.17.21",
         "@types/json-schema": "^7.0.15",
-        "@virtuallyunknown/esbuild": "0.0.2",
-        "@virtuallyunknown/eslint-config": "0.0.2",
-        "@virtuallyunknown/tsconfig": "0.0.2"
+        "@virtuallyunknown/esbuild": "0.0.3",
+        "@virtuallyunknown/eslint-config": "0.0.3",
+        "@virtuallyunknown/tsconfig": "0.0.3"
     }
 }
