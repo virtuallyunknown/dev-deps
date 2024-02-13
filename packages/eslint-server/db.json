@@ -17749,11 +17749,12 @@
             "config": [
                 {
                     "checksVoidReturn": {
+                        "arguments": false,
                         "attributes": false
                     }
                 }
             ],
-            "updatedAt": "2024-01-22T07:41:26.006Z",
+            "updatedAt": "2024-02-13T11:06:36.975Z",
             "note": null
         },
         {
