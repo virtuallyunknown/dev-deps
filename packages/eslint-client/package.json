@@ -12,7 +12,7 @@
         "@codemirror/lang-json": "^6.0.1",
         "@codemirror/lint": "^6.5.0",
         "@lezer/highlight": "^1.2.0",
-        "@trpc/client": "^10.44.1",
+        "@trpc/client": "^10.45.1",
         "@uiw/codemirror-extensions-langs": "^4.21.21",
         "@uiw/codemirror-theme-github": "^4.21.21",
         "@uiw/codemirror-themes": "^4.21.21",
@@ -26,13 +26,13 @@
         "zustand": "^4.5.0"
     },
     "devDependencies": {
-        "@types/react": "^18.2.45",
-        "@types/react-dom": "^18.2.18",
-        "@typescript-eslint/parser": "^6.20.0",
+        "@types/react": "^18.2.55",
+        "@types/react-dom": "^18.2.19",
+        "@typescript-eslint/parser": "^7.0.1",
         "@virtuallyunknown/esbuild": "0.0.2",
         "@virtuallyunknown/eslint-config": "0.0.2",
         "@virtuallyunknown/tsconfig": "0.0.2",
-        "eslint-plugin-tailwindcss": "^3.14.1",
+        "eslint-plugin-tailwindcss": "^3.14.2",
         "typescript": "^5.3.3"
     }
 }
