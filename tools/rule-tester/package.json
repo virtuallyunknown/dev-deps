@@ -1,10 +1,10 @@
 {
     "name": "@virtuallyunknown/rule-tester",
+    "version": "0.0.3",
     "type": "module",
     "private": true,
     "dependencies": {
         "@virtuallyunknown/eslint-config": "0.0.3",
         "@virtuallyunknown/tsconfig": "0.0.3"
-    },
-    "version": "0.0.3"
+    }
 }
