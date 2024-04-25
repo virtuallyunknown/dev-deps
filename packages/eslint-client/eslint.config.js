@@ -16,7 +16,7 @@ const eslintPluginTailwindCssConfig = [
         },
         rules: eslintPluginTailwindCss.configs.recommended.rules
     }
-]
+];
 
 export default [
     ...eslintBaseConfig,
