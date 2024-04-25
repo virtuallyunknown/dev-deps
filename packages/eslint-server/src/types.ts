@@ -6,7 +6,7 @@ export type ESLintRule = {
         docs: {
             description?: string;
             url?: string;
-            recommended?: boolean;
+            recommended?: boolean | string | { recommended: boolean };
             extendsBaseRule?: boolean;
             requiresTypeChecking?: boolean;
         };
@@ -41,6 +41,7 @@ export type RawLibData = {
 export type RuleUpgrade = {
     upgrade: BaseRule;
     diffs: Diff[];
+    dbRule: ExtendedRule;
 };
 
 /**
@@ -84,7 +85,10 @@ export const baseRuleSchema = z.object({
         .default(false),
     recommended: z.union([
         z.string(),
-        z.boolean()
+        z.boolean(),
+        z.object({
+            recommended: z.boolean(),
+        })
     ])
         .optional()
         .default(false),
