@@ -21858,10 +21858,10 @@
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [],
-            "errorLevel": 0,
+            "errorLevel": 1,
             "handledByTypescript": false,
             "config": [],
-            "updatedAt": "2024-04-25T21:33:26.422Z",
+            "updatedAt": "2024-04-25T23:09:01.752Z",
             "note": null
         },
         {
