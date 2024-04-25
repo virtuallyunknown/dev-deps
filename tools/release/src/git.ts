@@ -125,13 +125,13 @@ function getGitLogFormat() {
 
 function getCommitDetail(subject: string, body?: string): CommitDetail {
     const commitTypes = Object.keys(gitConfig.commitTypes).join('|');
-    const { type, breakingInType } =
+    const { type, scope, breaking } =
         subject.match(`^(?<type>${commitTypes}+)(\\((?<scope>[^)]+)\\))?(?<breaking>\\!)?`)?.groups ?? {};
 
-    const breaking = breakingInType === '!' || (body?.toLowerCase().startsWith('breaking change:') ?? false);
+    const isBreaking = breaking === '!' || (body?.toLowerCase().startsWith('breaking change:') ?? false);
     assertCommitType(type);
 
-    return { type, breaking };
+    return { type, breaking: isBreaking };
 }
 
 export async function createGitHubPush() {
@@ -177,3 +177,9 @@ function parseCommits(output: string) {
     };
 }
 
+const commitTypes = Object.keys(gitConfig.commitTypes).join('|');
+
+const { type, a, breaking } =
+    `feat!: upgrade all dependencies and migrate to eslint 9 (flat config)`.match(`^(?<type>${commitTypes}+)(\\((?<scope>[^)]+)\\))?(?<breaking>\\!)?`)?.groups ?? {};
+
+console.log(type, breaking);
