@@ -1,18 +1,18 @@
-import { execSync } from 'node:child_process';
 import type { BaseRule, ESLintRule, RawLibData, Rule } from './types.js';
 import { baseRuleSchema, libraries, packageJSONSchema, ruleSchema } from './types.js';
 
 import eslintStyle from '@stylistic/eslint-plugin';
 import eslintTypeScript from '@typescript-eslint/eslint-plugin';
-import eslintBase from 'eslint';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintUnicorn from 'eslint-plugin-unicorn';
+import eslintBase from 'eslint/use-at-your-own-risk';
+import { execSync } from 'node:child_process';
 
 const rules: RawLibData = {
     'eslint': {
         prefix: null,
-        rules: Object.fromEntries(new eslintBase.Linter().getRules()) as Record<string, ESLintRule>
+        rules: Object.fromEntries(eslintBase.builtinRules) as Record<string, ESLintRule>
     },
     '@typescript-eslint/eslint-plugin': {
         prefix: '@typescript-eslint',
@@ -36,6 +36,19 @@ const rules: RawLibData = {
     },
 };
 
+function isRecommended(item?: boolean | string | { recommended: boolean }) {
+    if (typeof item === 'string' && item.length > 0) {
+        return true;
+    }
+    if (typeof item === 'boolean') {
+        return item;
+    }
+    if (typeof item === 'object') {
+        return item.recommended;
+    }
+    return false;
+}
+
 /**
  * Create a flat array of all available rules,
  * and add extra keys for rule and library names.
@@ -50,7 +63,7 @@ export function getBaseRules() {
                 library: libName,
                 type: ruleData.meta.type,
                 deprecated: ruleData.meta.deprecated,
-                recommended: ruleData.meta.docs.recommended,
+                recommended: isRecommended(ruleData.meta.docs.recommended),
                 fixable: ruleData.meta.fixable,
                 hasSuggestions: ruleData.meta.hasSuggestions,
                 extendsBaseRule: ruleData.meta.docs.extendsBaseRule,
@@ -106,5 +119,3 @@ export function getPackageJSON() {
         dependencies
     });
 }
-
-getPackageJSON();
