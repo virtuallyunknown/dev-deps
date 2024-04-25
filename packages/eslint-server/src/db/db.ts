@@ -1,6 +1,7 @@
-import type { Linter } from 'eslint';
 import microdiff from 'microdiff';
-import { readFileSync, statSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { inspect } from 'node:util';
+import { format } from 'prettier';
 import { ajv } from '../ajv.js';
 import { diffWrapper } from '../diff.js';
 import { getBaseRules, getDefaultRules, getPackageJSON } from '../libs.js';
@@ -12,33 +13,10 @@ const libOrder = libraries.reduce<{ [key: string]: number }>((acc, curr, index) 
     return acc;
 }, {});
 
-/**
- * @see https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/eslint/index.d.ts#L936
- */
-const libConfigs = {
-    default: {
-        env: {
-            es2024: true,
-        },
-        plugins: ['@typescript-eslint', 'unicorn'],
-        parser: '@typescript-eslint/parser',
-        parserOptions: {
-            ecmaVersion: 'latest',
-            sourceType: 'module',
-        },
-    },
-    react: {
-        plugins: ['react', 'react-hooks'],
-        parserOptions: {
-            ecmaFeatures: {
-                jsx: true,
-            },
-        }
-    },
-    stylistic: {
-        plugins: ['@stylistic'],
-    }
-} as const satisfies Record<string, Linter.Config>;
+function recreateDir(path: string) {
+    rmSync(path, { force: true, recursive: true });
+    mkdirSync(path, { recursive: true });
+}
 
 class JSONDb {
     private dbPath: string;
@@ -135,25 +113,25 @@ class JSONDb {
 
     public getRuleUpgrades() {
         const libRules = getBaseRules();
-        const dbRules = this.db.rules.map(rule => baseRuleSchema.parse(rule));
 
         const ruleAdditions: BaseRule[] = [];
         const ruleUpgrades = [];
 
         for (const rule of libRules) {
-            const dbRule = dbRules.find(r => r.name === rule.name);
+            const dbRule = this.db.rules.find(r => r.name === rule.name);
 
             if (!dbRule) {
                 ruleAdditions.push(rule);
                 continue;
             }
 
-            const diffs = microdiff(dbRule, rule);
+            const diffs = microdiff(baseRuleSchema.parse(dbRule), rule);
 
             if (diffs.length > 0) {
                 ruleUpgrades.push({
                     upgrade: rule,
-                    diffs: diffWrapper(diffs)
+                    diffs: diffWrapper(diffs),
+                    dbRule: dbRule
                 });
             }
         }
@@ -259,9 +237,10 @@ class JSONDb {
         return errors;
     }
 
-    private createConfig(fileName: string, configType: keyof typeof libConfigs, ruleList: Rule[]) {
-        const config = libConfigs[configType];
-        const rules = ruleList.reduce<{ [key: string]: number | [number, ...unknown[]] }>((acc, curr) => {
+    private async prepareConfig(filePath: string, rules: Rule[]) {
+        const file = readFileSync(filePath, { encoding: 'utf-8' });
+
+        const ruleConfigs = rules.reduce<{ [key: string]: number | [number, ...unknown[]] }>((acc, curr) => {
             return curr.config.length > 0
                 ? {
                     ...acc,
@@ -273,44 +252,54 @@ class JSONDb {
                 };
         }, {});
 
-        return {
-            fileName,
-            data: `module.exports = ${JSON.stringify({ ...config, rules: rules }, null, 4)}`
-        };
+        /**
+         * Using inspect here is not ideal, but it does the job.
+         */
+        const ruleString = inspect(ruleConfigs, { depth: null });
+        const config = file.replace(/rules: {}/, `rules: ${ruleString}`);
+
+        return await format(config, {
+            parser: 'babel',
+            semi: true,
+            singleQuote: true,
+            tabWidth: 4,
+            quoteProps: 'consistent',
+        });
     }
 
-    public writeConfiguration() {
-        const configurations = [
-            this.createConfig(
-                'index',
-                'default',
-                this.db.rules.filter(r =>
-                    r.errorLevel > 0 &&
-                    (r.library === 'eslint' || r.library === '@typescript-eslint/eslint-plugin' || r.library === 'eslint-plugin-unicorn'))
-            ),
-            this.createConfig(
-                'react',
-                'react',
-                this.db.rules.filter(r =>
-                    r.errorLevel > 0 &&
-                    (
-                        r.library === 'eslint-plugin-react' ||
-                        r.library === 'eslint-plugin-react-hooks'
-                    ))
-            ),
-            this.createConfig(
-                'stylistic',
-                'stylistic',
-                this.db.rules.filter(r =>
-                    r.errorLevel > 0 &&
-                    r.library === '@stylistic/eslint-plugin')
-            )
-        ];
-
+    public async writeConfiguration() {
         try {
-            for (const config of configurations) {
-                writeFileSync(`../eslint-config/src/${config.fileName}.js`, config.data, { encoding: 'utf-8' });
+            const ruleData = [
+                {
+                    fileName: 'base.js',
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === 'eslint')
+                },
+                {
+                    fileName: 'typescript.js',
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === '@typescript-eslint/eslint-plugin')
+                },
+                {
+                    fileName: 'react.js',
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && (r.library === 'eslint-plugin-react' || r.library === 'eslint-plugin-react-hooks'))
+                },
+                {
+                    fileName: 'unicorn.js',
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === 'eslint-plugin-unicorn')
+                },
+                {
+                    fileName: 'stylistic.js',
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === '@stylistic/eslint-plugin')
+                }
+            ];
+
+            recreateDir('../eslint-config/src');
+
+            for (const config of ruleData) {
+                writeFileSync(`../eslint-config/src/${config.fileName}`, await this.prepareConfig(`./configs/${config.fileName}`, config.rules), { encoding: 'utf-8' });
             }
+
+            copyFileSync('./configs/globals.js', '../eslint-config/src/globals.js');
+            copyFileSync('./configs/index.js', '../eslint-config/src/index.js');
 
             return {
                 success: true
@@ -321,8 +310,10 @@ class JSONDb {
                 success: false,
                 errors: error
             } as const;
+
         }
     }
+
 }
 
 export const db = new JSONDb();
