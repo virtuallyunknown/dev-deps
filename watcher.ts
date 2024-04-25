@@ -1,6 +1,6 @@
-import { $, ExecaError } from 'execa';
-import { watch } from 'chokidar';
 import chalk from 'chalk';
+import { watch } from 'chokidar';
+import { $, ExecaError } from 'execa';
 
 const $$ = $({
     stdout: process.stdout,
