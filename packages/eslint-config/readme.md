@@ -3,8 +3,8 @@
 1. Install the package:
 
 ```zsh
-npm i @virtuallyunknown/eslint-config
-pnpm add @virtuallyunknown/eslint-config
+npm i @virtuallyunknown/eslint-config -D
+pnpm add @virtuallyunknown/eslint-config -D
 ```
 
 1. Create `eslint.config.js` file and add the following:
@@ -50,6 +50,28 @@ export default [
     },
     {
         ignores: ["**/*.{js,cjs,mjs}"],
+    },
+];
+```
+
+### Additional configurations (not bundled with this package)
+
+#### [eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss)
+
+```zsh
+npm i eslint-plugin-tailwindcss -D
+pnpm add eslint-plugin-tailwindcss -D
+```
+
+```js
+import eslintPluginTailwindCss from "eslint-plugin-tailwindcss";
+
+const eslintPluginTailwindCssConfig = [
+    {
+        plugins: {
+            tailwindcss: eslintPluginTailwindCss,
+        },
+        rules: eslintPluginTailwindCss.configs.recommended.rules,
     },
 ];
 ```
