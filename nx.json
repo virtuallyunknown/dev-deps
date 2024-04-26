@@ -14,15 +14,14 @@
             "cache": false
         }
     },
-    "affected": {
-        "defaultBase": "master"
-    },
+    "defaultBase": "master",
     "release": {
         "releaseTagPattern": "{version}",
         "projectsRelationship": "fixed",
         "projects": ["packages/*", "tools/*"],
         "version": {
             "generatorOptions": {
+                "installIgnoreScripts": true,
                 "currentVersionResolver": "git-tag"
             }
         }
