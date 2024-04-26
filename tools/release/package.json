@@ -1,15 +1,15 @@
 {
     "name": "@virtuallyunknown/release",
     "type": "module",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "scripts": {
         "check": "tsc",
         "lint": "eslint 'src/**/*.ts' --max-warnings 0 --report-unused-disable-directives"
     },
     "dependencies": {
-        "@virtuallyunknown/eslint-config": "0.1.0",
-        "@virtuallyunknown/tsconfig": "0.1.0",
+        "@virtuallyunknown/eslint-config": "0.1.1",
+        "@virtuallyunknown/tsconfig": "0.1.1",
         "axios": "^1.6.8",
         "enquirer": "^2.4.1",
         "semver": "^7.6.0"
