@@ -23,6 +23,7 @@ export const eslintPluginTypescriptConfig = [
                     overrides: { constructors: 'off' },
                 },
             ],
+            '@typescript-eslint/method-signature-style': [1, 'property'],
             '@typescript-eslint/no-explicit-any': [1, { ignoreRestArgs: true }],
             '@typescript-eslint/no-floating-promises': [
                 2,

@@ -15172,10 +15172,12 @@
                     ]
                 }
             ],
-            "errorLevel": 0,
+            "errorLevel": 1,
             "handledByTypescript": false,
-            "config": [],
-            "updatedAt": "2024-01-14T00:36:03.665Z",
+            "config": [
+                "property"
+            ],
+            "updatedAt": "2024-04-26T00:59:50.811Z",
             "note": null
         },
         {
