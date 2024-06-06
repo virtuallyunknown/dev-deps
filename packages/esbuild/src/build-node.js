@@ -6,7 +6,7 @@ import { build, context } from 'esbuild';
 const buildOptions = {
     outdir: './out',
     platform: 'node',
-    target: 'node20',
+    target: 'node22',
     format: 'esm',
     bundle: false,
     minify: false,

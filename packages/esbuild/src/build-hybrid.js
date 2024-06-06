@@ -7,7 +7,7 @@ import fg from 'fast-glob';
 const buildOptions = {
     outdir: './out',
     platform: 'node',
-    target: 'node20',
+    target: 'node22',
     format: 'esm',
     jsx: 'automatic',
     bundle: false,
