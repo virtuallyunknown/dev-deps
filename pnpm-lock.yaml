@@ -81,7 +81,7 @@ importers:
         specifier: ^4.22.1
         version: 4.22.1(@babel/runtime@7.24.7)(@codemirror/autocomplete@6.16.2(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.27.0)(@lezer/common@1.2.1))(@codemirror/language@6.10.2)(@codemirror/lint@6.8.0)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.27.0)(codemirror@6.0.1(@lezer/common@1.2.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@virtuallyunknown/eslint-server':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../eslint-server
       clsx:
         specifier: ^2.1.1
@@ -112,13 +112,13 @@ importers:
         specifier: ^7.12.0
         version: 7.12.0(eslint@9.4.0)(typescript@5.4.5)
       '@virtuallyunknown/esbuild':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../esbuild
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../tsconfig
       eslint-plugin-tailwindcss:
         specifier: ^3.17.3
@@ -209,13 +209,13 @@ importers:
         specifier: ^7.0.15
         version: 7.0.15
       '@virtuallyunknown/esbuild':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../esbuild
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../tsconfig
 
   packages/tsconfig: {}
@@ -223,10 +223,10 @@ importers:
   tools/release:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../../packages/tsconfig
       axios:
         specifier: ^1.7.2
@@ -245,10 +245,10 @@ importers:
   tools/rule-tester:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../../packages/tsconfig
 
 packages:
