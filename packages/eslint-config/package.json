@@ -23,12 +23,12 @@
         ".": "./src/index.js"
     },
     "dependencies": {
-        "@stylistic/eslint-plugin": "^1.7.2",
-        "eslint": "^9.1.0",
-        "eslint-plugin-react": "^7.34.1",
-        "eslint-plugin-react-hooks": "5.1.0-canary-cb151849e1-20240424",
-        "eslint-plugin-unicorn": "^52.0.0",
-        "globals": "^15.0.0",
-        "typescript-eslint": "^7.7.0"
+        "@stylistic/eslint-plugin": "^2.1.0",
+        "eslint": "^9.4.0",
+        "eslint-plugin-react": "^7.34.2",
+        "eslint-plugin-react-hooks": "5.1.0-rc-99da76f23a-20240606",
+        "eslint-plugin-unicorn": "^53.0.0",
+        "globals": "^15.4.0",
+        "typescript-eslint": "^7.12.0"
     }
 }

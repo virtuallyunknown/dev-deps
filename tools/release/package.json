@@ -10,9 +10,9 @@
     "dependencies": {
         "@virtuallyunknown/eslint-config": "0.1.1",
         "@virtuallyunknown/tsconfig": "0.1.1",
-        "axios": "^1.6.8",
+        "axios": "^1.7.2",
         "enquirer": "^2.4.1",
-        "semver": "^7.6.0"
+        "semver": "^7.6.2"
     },
     "devDependencies": {
         "@types/semver": "^7.5.8"
