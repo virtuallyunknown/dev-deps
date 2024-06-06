@@ -13,6 +13,13 @@ export const eslintPluginTypescriptConfig = [
         },
         rules: {
             '@typescript-eslint/await-thenable': 1,
+            '@typescript-eslint/ban-ts-comment': [
+                1,
+                {
+                    'ts-ignore': 'allow-with-description',
+                    'ts-nocheck': 'allow-with-description',
+                },
+            ],
             '@typescript-eslint/ban-types': 1,
             '@typescript-eslint/consistent-type-exports': 1,
             '@typescript-eslint/consistent-type-imports': 1,
@@ -53,7 +60,6 @@ export const eslintPluginTypescriptConfig = [
                 },
             ],
             '@typescript-eslint/prefer-optional-chain': 1,
-            '@typescript-eslint/prefer-ts-expect-error': 1,
             '@typescript-eslint/require-await': 1,
             '@typescript-eslint/switch-exhaustiveness-check': [
                 1,
