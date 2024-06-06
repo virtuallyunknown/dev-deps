@@ -55,7 +55,7 @@ class _Ajv {
     }
 
     public validateOptions(schema: Rule['schema'], options: unknown): { success: true } | { success: false, errors: Ajv.ErrorObject[] } {
-        const normalizedSchema = this.normalizeSchema(schema);
+        const normalizedSchema = this.normalizeSchema(schema || []);
         const valid = this.ajv.compile(normalizedSchema);
 
         void valid(options);
