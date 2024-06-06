@@ -109,6 +109,7 @@ export const baseRuleSchema = z.object({
     schema: z.union([
         z.record(z.string(), z.unknown()),
         z.array(z.record(z.string(), z.unknown())),
+        z.literal(false)
     ])
         .default([])
 });
