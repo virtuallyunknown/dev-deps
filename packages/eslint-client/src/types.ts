@@ -35,6 +35,6 @@ export type StoreActions = {
     validateAllRules: () => Promise<void>;
     writeConfiguration: () => Promise<void>;
     setPage: (page: StoreProps['page'], rule?: Rule) => Promise<void>;
-    createToast(toast: Omit<Toast, 'id'>): void;
-    removeToast(id: Toast['id']): void;
+    createToast: (toast: Omit<Toast, 'id'>) => void;
+    removeToast: (id: Toast['id']) => void;
 };
