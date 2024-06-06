@@ -4,7 +4,7 @@
  */
 
 import Ajv from 'ajv';
-import metaSchema from 'ajv/lib/refs/json-schema-draft-04.json' assert { type: 'json' };
+import metaSchema from 'ajv/lib/refs/json-schema-draft-04.json' with { type: 'json' };
 import type { JSONSchema4 } from 'json-schema';
 import type { Rule } from './types.js';
 
