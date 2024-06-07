@@ -16,7 +16,7 @@ const buildOptions = {
  * @param {{ env: 'prod' | 'dev' } & Record<string, any>} options
  */
 export async function buildReact({ env, ...args }) {
-    await build({
+    return await build({
         entryPoints: ['./src/index.tsx'],
         ...buildOptions,
         ...env === 'dev'

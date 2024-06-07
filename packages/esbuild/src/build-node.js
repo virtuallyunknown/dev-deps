@@ -17,7 +17,7 @@ const buildOptions = {
  * @param {Record<string,any>} options
  */
 export async function buildNode({ ...args }) {
-    await build({
+    return await build({
         entryPoints: ['./src/**/*.ts'],
         ...buildOptions,
         ...args

@@ -19,7 +19,7 @@ const buildOptions = {
  * @param {Record<string,any>} options
  */
 export async function buildHybrid({ ...args }) {
-    await build({
+    return await build({
         entryPoints: await fg('./src/**/*.(ts|tsx)'),
         ...buildOptions,
         ...args
