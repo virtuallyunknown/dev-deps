@@ -181,5 +181,3 @@ const commitTypes = Object.keys(gitConfig.commitTypes).join('|');
 
 const { type, a, breaking } =
     `feat!: upgrade all dependencies and migrate to eslint 9 (flat config)`.match(`^(?<type>${commitTypes}+)(\\((?<scope>[^)]+)\\))?(?<breaking>\\!)?`)?.groups ?? {};
-
-console.log(type, breaking);
