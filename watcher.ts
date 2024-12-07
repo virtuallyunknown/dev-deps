@@ -1,7 +1,8 @@
 import chalk from 'chalk';
 import { watch } from 'chokidar';
 import { $, ExecaError } from 'execa';
-import fg from 'fast-glob';
+import { globSync } from 'node:fs';
+
 
 const $$ = $({
     stdout: process.stdout,
@@ -46,9 +47,7 @@ await rebuild();
 
 try {
     let controller = runApps();
-    const watchList = fg.globSync("packages/**/src/**/*.(ts|tsx|css)", { ignore: ["**/node_modules/**"] });
-
-    watch(watchList).on("change", async (path) => {
+    watch(globSync('packages/**/src/**/*.{ts,tsx,css,js}')).on("change", async (path) => {
         await rebuild();
         controller.abort('RELOAD');
         controller = runApps();
