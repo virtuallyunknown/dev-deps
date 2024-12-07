@@ -1,11 +1,13 @@
 import chalk from 'chalk';
 import { watch } from 'chokidar';
 import { $, ExecaError } from 'execa';
+import fg from 'fast-glob';
 
 const $$ = $({
     stdout: process.stdout,
     stderr: process.stderr,
     env: { FORCE_COLOR: '1' },
+    verbose: 'short'
 });
 
 const apps = [
@@ -13,12 +15,8 @@ const apps = [
 ] as const;
 
 function handleError(error: ExecaError) {
-    if ('code' in error && error.code === 'ABORT_ERR') {
+    if ('originalMessage' in error && error.originalMessage === 'RELOAD') {
         return;
-    }
-
-    if (error.signal !== 'SIGINT') {
-        console.error(error);
     }
 
     process.exit(1);
@@ -48,10 +46,11 @@ await rebuild();
 
 try {
     let controller = runApps();
+    const watchList = fg.globSync("packages/**/src/**/*.(ts|tsx|css)", { ignore: ["**/node_modules/**"] });
 
-    watch(["packages/**/src/**/*.(ts|tsx|css)"]).on("change", async (path) => {
+    watch(watchList).on("change", async (path) => {
         await rebuild();
-        controller.abort();
+        controller.abort('RELOAD');
         controller = runApps();
     })
 } catch (error) {
