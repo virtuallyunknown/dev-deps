@@ -21,6 +21,7 @@
         "projects": ["packages/*", "tools/*"],
         "version": {
             "generatorOptions": {
+                "preserveLocalDependencyProtocols": true,
                 "installIgnoreScripts": true,
                 "currentVersionResolver": "git-tag"
             }

@@ -8,8 +8,8 @@
         "lint": "eslint 'src/**/*.ts' --max-warnings 0 --report-unused-disable-directives"
     },
     "dependencies": {
-        "@virtuallyunknown/eslint-config": "0.1.3",
-        "@virtuallyunknown/tsconfig": "0.1.3",
+        "@virtuallyunknown/eslint-config": "workspace:*",
+        "@virtuallyunknown/tsconfig": "workspace:*",
         "axios": "^1.7.9",
         "enquirer": "^2.4.1",
         "semver": "^7.6.3"
