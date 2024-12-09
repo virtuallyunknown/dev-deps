@@ -1,5 +1,6 @@
 import {
     eslintBaseConfig,
+    eslintPluginStylisticConfig,
     eslintPluginTypescriptConfig,
     eslintPluginUnicornConfig,
     globals
@@ -9,6 +10,7 @@ export default [
     ...eslintBaseConfig,
     ...eslintPluginTypescriptConfig,
     ...eslintPluginUnicornConfig,
+    ...eslintPluginStylisticConfig,
     {
         files: ["src/**/*.{ts,tsx}"],
         languageOptions: {
