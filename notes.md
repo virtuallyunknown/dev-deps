@@ -9,3 +9,11 @@ error.
 ### Debug eslint config
 
 pnx eslint --print-config ./eslintrc.cjs
+
+### ESLint plugin related versioning
+
+Prefer fixed versions in package.json. If we use semver range such as ^, updates could
+quietly install newer version, even though in package.json it will output 9.4 for example,
+but the installed version could be 9.8, leading to some confusion.
+
+Running pnpm update will still work and offer updates.
