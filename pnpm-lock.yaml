@@ -84,7 +84,7 @@ importers:
         specifier: ^4.23.6
         version: 4.23.6(@babel/runtime@7.26.0)(@codemirror/autocomplete@6.18.3(@codemirror/language@6.10.6)(@codemirror/state@6.4.1)(@codemirror/view@6.35.2)(@lezer/common@1.2.3))(@codemirror/language@6.10.6)(@codemirror/lint@6.8.4)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.35.2)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@virtuallyunknown/eslint-server':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../eslint-server
       clsx:
         specifier: ^2.1.1
@@ -115,13 +115,13 @@ importers:
         specifier: ^7.12.0
         version: 7.12.0(eslint@9.4.0)(typescript@5.7.2)
       '@virtuallyunknown/esbuild':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../esbuild
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../tsconfig
       eslint-plugin-tailwindcss:
         specifier: ^3.17.5
@@ -212,13 +212,13 @@ importers:
         specifier: ^7.0.15
         version: 7.0.15
       '@virtuallyunknown/esbuild':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../esbuild
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../tsconfig
 
   packages/tsconfig: {}
@@ -226,10 +226,10 @@ importers:
   tools/release:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../../packages/tsconfig
       axios:
         specifier: ^1.7.9
@@ -248,10 +248,10 @@ importers:
   tools/rule-tester:
     dependencies:
       '@virtuallyunknown/eslint-config':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../../packages/eslint-config
       '@virtuallyunknown/tsconfig':
-        specifier: 0.1.3
+        specifier: workspace:*
         version: link:../../packages/tsconfig
 
 packages:
