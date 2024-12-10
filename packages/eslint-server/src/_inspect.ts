@@ -1,9 +1,9 @@
 import eslintStyle from '@stylistic/eslint-plugin';
-import eslintTypeScript from '@typescript-eslint/eslint-plugin';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintUnicorn from 'eslint-plugin-unicorn';
 import eslintBase from 'eslint/use-at-your-own-risk';
+import eslintTypeScript from 'typescript-eslint';
 import type { ESLintRule, RawLibData } from './types.js';
 
 const rules: RawLibData = {
@@ -11,9 +11,9 @@ const rules: RawLibData = {
         prefix: null,
         rules: Object.fromEntries(eslintBase.builtinRules) as Record<string, ESLintRule>
     },
-    '@typescript-eslint/eslint-plugin': {
+    'typescript-eslint': {
         prefix: '@typescript-eslint',
-        rules: eslintTypeScript.rules as Record<string, ESLintRule>
+        rules: eslintTypeScript.plugin.rules as Record<string, ESLintRule>
     },
     'eslint-plugin-unicorn': {
         prefix: 'unicorn',
@@ -39,7 +39,7 @@ const ruleData = {
         fixableTypes: new Set(),
         typeTypes: new Set(),
     },
-    '@typescript-eslint/eslint-plugin': {
+    'typescript-eslint': {
         baseProps: new Set(),
         fixableTypes: new Set(),
         typeTypes: new Set(),

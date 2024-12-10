@@ -276,7 +276,7 @@ class JSONDb {
                 },
                 {
                     fileName: 'typescript.js',
-                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === '@typescript-eslint/eslint-plugin')
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === 'typescript-eslint')
                 },
                 {
                     fileName: 'react.js',

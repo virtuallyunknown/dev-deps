@@ -21,7 +21,7 @@ export type ESLintRule = {
 
 export const libraries = [
     'eslint',
-    '@typescript-eslint/eslint-plugin',
+    'typescript-eslint',
     'eslint-plugin-unicorn',
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
@@ -59,7 +59,7 @@ export const baseRuleSchema = z.object({
         .min(15),
     library: z.union([
         z.literal('eslint'),
-        z.literal('@typescript-eslint/eslint-plugin'),
+        z.literal('typescript-eslint'),
         z.literal('eslint-plugin-unicorn'),
         z.literal('eslint-plugin-react'),
         z.literal('eslint-plugin-react-hooks'),

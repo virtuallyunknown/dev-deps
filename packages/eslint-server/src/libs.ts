@@ -2,21 +2,21 @@ import type { BaseRule, ESLintRule, RawLibData, Rule } from './types.js';
 import { baseRuleSchema, libraries, packageJSONSchema, ruleSchema } from './types.js';
 
 import eslintStyle from '@stylistic/eslint-plugin';
-import eslintTypeScript from '@typescript-eslint/eslint-plugin';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintUnicorn from 'eslint-plugin-unicorn';
 import eslintBase from 'eslint/use-at-your-own-risk';
 import { execSync } from 'node:child_process';
+import eslintTypeScript from 'typescript-eslint';
 
 const rules: RawLibData = {
     'eslint': {
         prefix: null,
         rules: Object.fromEntries(eslintBase.builtinRules) as Record<string, ESLintRule>
     },
-    '@typescript-eslint/eslint-plugin': {
+    'typescript-eslint': {
         prefix: '@typescript-eslint',
-        rules: eslintTypeScript.rules as Record<string, ESLintRule>
+        rules: eslintTypeScript.plugin.rules as Record<string, ESLintRule>
     },
     'eslint-plugin-unicorn': {
         prefix: 'unicorn',
@@ -35,6 +35,7 @@ const rules: RawLibData = {
         rules: eslintStyle.rules as Record<string, ESLintRule>
     },
 };
+
 
 function isRecommended(item?: boolean | string | { recommended: boolean }) {
     if (typeof item === 'string' && item.length > 0) {
