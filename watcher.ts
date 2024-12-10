@@ -3,7 +3,6 @@ import { watch } from 'chokidar';
 import { $, ExecaError } from 'execa';
 import { globSync } from 'node:fs';
 
-
 const $$ = $({
     stdout: process.stdout,
     stderr: process.stderr,
@@ -32,7 +31,7 @@ function runApps() {
 
     for (const app of apps) {
         console.log(chalk.bgBlue(` Starting ${app.name} `));
-        $$({ cancelSignal: controller.signal, cwd: app.cwd })`node --no-warnings ${app.cmd}`.catch(handleError)
+        $$({ cancelSignal: controller.signal, cwd: app.cwd })`node ${app.cmd}`.catch(handleError)
     }
 
     return controller;
