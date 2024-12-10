@@ -22,7 +22,7 @@
         "url": "git+https://github.com/virtuallyunknown/dev-deps.git"
     },
     "scripts": {
-        "editor": "tsx watcher.ts",
+        "editor": "tsx --disable-warning=ExperimentalWarning watcher.ts",
         "check": "nx run-many -t check",
         "lint": "nx run-many -t lint",
         "update": "pnpm up --latest --interactive --recursive",
