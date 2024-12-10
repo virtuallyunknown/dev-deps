@@ -42,8 +42,7 @@
     "pnpm": {
         "updateConfig": {
             "ignoreDependencies": [
-                "ajv",
-                "eslint-plugin-react-hooks"
+                "ajv"
             ]
         }
     }

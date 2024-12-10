@@ -8,16 +8,16 @@
             "@typescript-eslint/eslint-plugin": "7.12.0"
         },
         {
-            "eslint-plugin-react-hooks": "5.1.0-rc-99da76f23a-20240606"
+            "eslint": "9.4.0"
         },
         {
             "eslint-plugin-react": "7.34.2"
         },
         {
-            "eslint-plugin-unicorn": "53.0.0"
+            "eslint-plugin-react-hooks": "5.1.0-rc-99da76f23a-20240606"
         },
         {
-            "eslint": "9.4.0"
+            "eslint-plugin-unicorn": "53.0.0"
         }
     ],
     "rules": [
