@@ -104,7 +104,7 @@ export function getDefaultRules() {
 }
 
 export function getPackageJSON() {
-    const packageJSON = JSON.parse(execSync('npm ls --json', { encoding: 'utf-8' })) as unknown;
+    const [packageJSON] = JSON.parse(execSync('pnpm ls --json', { encoding: 'utf-8' })) as unknown[];
     const parsedJSON = packageJSONSchema.parse(packageJSON);
 
     const dependencies = Object.entries(parsedJSON.dependencies).reduce<Record<string, string>[]>((acc, [key, value]) => {
