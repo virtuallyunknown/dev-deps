@@ -43,6 +43,7 @@
         "zod": "^3.23.8"
     },
     "devDependencies": {
+        "@types/eslint": "^9.6.1",
         "@types/express": "^5.0.0",
         "@types/json-schema": "^7.0.15",
         "@virtuallyunknown/esbuild": "workspace:*",

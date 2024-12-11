@@ -105,6 +105,9 @@ importers:
         specifier: ^5.0.2
         version: 5.0.2(@types/react@19.0.1)(react@19.0.0)(use-sync-external-store@1.2.0(react@19.0.0))
     devDependencies:
+      '@types/eslint':
+        specifier: ^9.6.1
+        version: 9.6.1
       '@types/react':
         specifier: ^19.0.1
         version: 19.0.1
@@ -199,6 +202,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@types/eslint':
+        specifier: ^9.6.1
+        version: 9.6.1
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.0
@@ -1521,6 +1527,12 @@ packages:
 
   '@types/connect@3.4.38':
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
+
+  '@types/eslint@9.6.1':
+    resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
+
+  '@types/estree@1.0.6':
+    resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
 
   '@types/express-serve-static-core@5.0.2':
     resolution: {integrity: sha512-vluaspfvWEtE4vcSDlKRNer52DvOGrB2xv6diXy6UKyKW0lqZiWHGNApSyxOv+8DE5Z27IzVvE7hNkxg7EXIcg==}
@@ -5483,6 +5495,13 @@ snapshots:
   '@types/connect@3.4.38':
     dependencies:
       '@types/node': 22.10.1
+
+  '@types/eslint@9.6.1':
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/json-schema': 7.0.15
+
+  '@types/estree@1.0.6': {}
 
   '@types/express-serve-static-core@5.0.2':
     dependencies:
