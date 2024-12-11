@@ -8,7 +8,7 @@
             "eslint": "9.4.0"
         },
         {
-            "eslint-plugin-react": "7.34.2"
+            "eslint-plugin-react": "7.37.2"
         },
         {
             "eslint-plugin-react-hooks": "5.1.0"
@@ -25139,6 +25139,13 @@
                                                     "type": "string"
                                                 }
                                             },
+                                            "allowedForPatterns": {
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
                                             "message": {
                                                 "type": "string"
                                             }
@@ -25159,12 +25166,95 @@
                                                     "type": "string"
                                                 }
                                             },
+                                            "disallowedForPatterns": {
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "minItems": 1,
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
                                             "message": {
                                                 "type": "string"
                                             }
                                         },
-                                        "required": [
-                                            "disallowedFor"
+                                        "anyOf": [
+                                            {
+                                                "required": [
+                                                    "disallowedFor"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "disallowedForPatterns"
+                                                ]
+                                            }
+                                        ],
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "propNamePattern": {
+                                                "type": "string"
+                                            },
+                                            "allowedFor": {
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "allowedForPatterns": {
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "propNamePattern": {
+                                                "type": "string"
+                                            },
+                                            "disallowedFor": {
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "minItems": 1,
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "disallowedForPatterns": {
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                                "minItems": 1,
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "anyOf": [
+                                            {
+                                                "required": [
+                                                    "disallowedFor"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "disallowedForPatterns"
+                                                ]
+                                            }
                                         ],
                                         "additionalProperties": false
                                     }
@@ -25356,6 +25446,26 @@
             "handledByTypescript": false,
             "config": [],
             "updatedAt": "2024-01-14T00:36:03.665Z",
+            "note": null
+        },
+        {
+            "name": "react/forward-ref-uses-ref",
+            "description": "Require all forwardRef components include a ref parameter",
+            "url": "https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/forward-ref-uses-ref.md",
+            "library": "eslint-plugin-react",
+            "type": "suggestion",
+            "fixable": null,
+            "deprecated": false,
+            "recommended": false,
+            "hasSuggestions": true,
+            "extendsBaseRule": false,
+            "requiresTypeChecking": false,
+            "replacedBy": [],
+            "schema": [],
+            "errorLevel": 0,
+            "handledByTypescript": false,
+            "config": [],
+            "updatedAt": "2024-12-11T01:56:53.510Z",
             "note": null
         },
         {
@@ -25672,7 +25782,30 @@
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
-            "schema": [],
+            "schema": [
+                {
+                    "anyOf": [
+                        {
+                            "enum": [
+                                "tag-aligned",
+                                "line-aligned"
+                            ]
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "location": {
+                                    "enum": [
+                                        "tag-aligned",
+                                        "line-aligned"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                }
+            ],
             "errorLevel": 0,
             "handledByTypescript": false,
             "config": [],
@@ -26054,6 +26187,13 @@
                                 },
                                 "checkInlineFunction": {
                                     "type": "boolean"
+                                },
+                                "ignoreComponentNames": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 }
                             },
                             "additionalProperties": false
@@ -26075,6 +26215,13 @@
                                 },
                                 "checkInlineFunction": {
                                     "type": "boolean"
+                                },
+                                "ignoreComponentNames": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 }
                             },
                             "additionalProperties": false
@@ -26096,6 +26243,13 @@
                                 },
                                 "checkInlineFunction": {
                                     "type": "boolean"
+                                },
+                                "ignoreComponentNames": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 }
                             },
                             "additionalProperties": false
@@ -26117,6 +26271,18 @@
                                 }
                             },
                             "additionalProperties": false
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "ignoreComponentNames": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
                         }
                     ]
                 }
@@ -26589,6 +26755,35 @@
                 {
                     "type": "object",
                     "properties": {
+                        "elementOverrides": {
+                            "type": "object",
+                            "patternProperties": {
+                                "^[A-Z][\\w.]*$": {
+                                    "type": "object",
+                                    "properties": {
+                                        "applyToNestedElements": {
+                                            "type": "boolean"
+                                        },
+                                        "noStrings": {
+                                            "type": "boolean"
+                                        },
+                                        "allowedStrings": {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "ignoreProps": {
+                                            "type": "boolean"
+                                        },
+                                        "noAttributeStrings": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            }
+                        },
                         "noStrings": {
                             "type": "boolean"
                         },
@@ -26903,6 +27098,26 @@
             "note": null
         },
         {
+            "name": "react/jsx-props-no-spread-multi",
+            "description": "Disallow JSX prop spreading the same identifier multiple times",
+            "url": "https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-props-no-spread-multi.md",
+            "library": "eslint-plugin-react",
+            "type": null,
+            "fixable": null,
+            "deprecated": false,
+            "recommended": false,
+            "hasSuggestions": false,
+            "extendsBaseRule": false,
+            "requiresTypeChecking": false,
+            "replacedBy": [],
+            "schema": [],
+            "errorLevel": 0,
+            "handledByTypescript": false,
+            "config": [],
+            "updatedAt": "2024-12-11T01:56:53.510Z",
+            "note": null
+        },
+        {
             "name": "react/jsx-props-no-spreading",
             "description": "Disallow JSX prop spreading",
             "url": "https://github.com/jsx-eslint/eslint-plugin-react/tree/master/docs/rules/jsx-props-no-spreading.md",
@@ -26928,6 +27143,12 @@
                                     ]
                                 },
                                 "custom": {
+                                    "enum": [
+                                        "enforce",
+                                        "ignore"
+                                    ]
+                                },
+                                "explicitSpread": {
                                     "enum": [
                                         "enforce",
                                         "ignore"
@@ -27423,7 +27644,21 @@
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
-            "schema": [],
+            "schema": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "customComponentNames": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 0,
+                            "type": "array",
+                            "uniqueItems": true
+                        }
+                    }
+                }
+            ],
             "errorLevel": 0,
             "handledByTypescript": false,
             "config": [],
@@ -27822,7 +28057,7 @@
             "fixable": null,
             "deprecated": false,
             "recommended": true,
-            "hasSuggestions": false,
+            "hasSuggestions": true,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
@@ -27958,6 +28193,9 @@
                         },
                         "allowAsProps": {
                             "type": "boolean"
+                        },
+                        "propNamePattern": {
+                            "type": "string"
                         }
                     },
                     "additionalProperties": false
