@@ -2,7 +2,7 @@
     "name": "@virtuallyunknown/eslint-server",
     "dependencies": [
         {
-            "@stylistic/eslint-plugin": "2.1.0"
+            "@stylistic/eslint-plugin": "2.12.0"
         },
         {
             "eslint": "9.4.0"
@@ -29065,6 +29065,9 @@
                             {
                                 "type": "object",
                                 "properties": {
+                                    "consistent": {
+                                        "type": "boolean"
+                                    },
                                     "multiline": {
                                         "type": "boolean"
                                     },
@@ -29108,9 +29111,12 @@
             "errorLevel": 1,
             "handledByTypescript": false,
             "config": [
-                "consistent"
+                {
+                    "consistent": true,
+                    "multiline": true
+                }
             ],
-            "updatedAt": "2024-01-18T17:50:37.036Z",
+            "updatedAt": "2024-12-11T02:19:01.022Z",
             "note": null
         },
         {
@@ -29196,7 +29202,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -29224,7 +29230,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -29268,7 +29274,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
@@ -29318,6 +29324,12 @@
                                     "functions": {
                                         "$ref": "#/$defs/valueWithIgnore"
                                     },
+                                    "importAttributes": {
+                                        "$ref": "#/$defs/valueWithIgnore"
+                                    },
+                                    "dynamicImports": {
+                                        "$ref": "#/$defs/valueWithIgnore"
+                                    },
                                     "enums": {
                                         "$ref": "#/$defs/valueWithIgnore"
                                     },
@@ -29351,7 +29363,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -29455,6 +29467,675 @@
             "note": null
         },
         {
+            "name": "@stylistic/curly-newline",
+            "description": "Enforce consistent line breaks after opening and before closing braces",
+            "url": "https://eslint.style/rules/plus/curly-newline",
+            "library": "@stylistic/eslint-plugin",
+            "type": "layout",
+            "fixable": "whitespace",
+            "deprecated": false,
+            "recommended": false,
+            "hasSuggestions": false,
+            "extendsBaseRule": false,
+            "requiresTypeChecking": false,
+            "replacedBy": [],
+            "schema": [
+                {
+                    "oneOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "always",
+                                "never"
+                            ]
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "IfStatementConsequent": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "IfStatementAlternative": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "DoWhileStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "ForInStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "ForOfStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "ForStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "WhileStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "SwitchStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "SwitchCase": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "TryStatementBlock": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "TryStatementHandler": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "TryStatementFinalizer": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "BlockStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "ArrowFunctionExpression": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "FunctionDeclaration": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "FunctionExpression": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "Property": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "ClassBody": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "StaticBlock": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "WithStatement": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "TSEnumBody": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "TSInterfaceBody": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "TSModuleBlock": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minElements": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "multiline": {
+                                    "type": "boolean"
+                                },
+                                "minElements": {
+                                    "type": "integer",
+                                    "minimum": 0
+                                },
+                                "consistent": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                }
+            ],
+            "errorLevel": 0,
+            "handledByTypescript": false,
+            "config": [],
+            "updatedAt": "2024-12-11T02:01:46.497Z",
+            "note": null
+        },
+        {
             "name": "@stylistic/dot-location",
             "description": "Enforce consistent newlines before and after dots",
             "url": "https://eslint.style/rules/js/dot-location",
@@ -29522,7 +30203,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
@@ -29554,6 +30235,18 @@
                                 "properties": {
                                     "allowNewlines": {
                                         "type": "boolean"
+                                    },
+                                    "optionalChain": {
+                                        "type": "object",
+                                        "properties": {
+                                            "before": {
+                                                "type": "boolean"
+                                            },
+                                            "after": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "additionalProperties": false
                                     }
                                 },
                                 "additionalProperties": false
@@ -29611,7 +30304,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
@@ -29643,6 +30336,18 @@
                                 "properties": {
                                     "allowNewlines": {
                                         "type": "boolean"
+                                    },
+                                    "optionalChain": {
+                                        "type": "object",
+                                        "properties": {
+                                            "before": {
+                                                "type": "boolean"
+                                            },
+                                            "after": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "additionalProperties": false
                                     }
                                 },
                                 "additionalProperties": false
@@ -29865,7 +30570,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -30135,6 +30840,10 @@
                         "ignoreComments": {
                             "type": "boolean",
                             "default": false
+                        },
+                        "tabLength": {
+                            "type": "number",
+                            "default": 4
                         }
                     },
                     "additionalProperties": false
@@ -30154,7 +30863,7 @@
             "type": "layout",
             "fixable": "whitespace",
             "deprecated": false,
-            "recommended": true,
+            "recommended": false,
             "hasSuggestions": false,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
@@ -30307,7 +31016,20 @@
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
-            "schema": [],
+            "schema": [
+                {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "enum": [
+                                "tag-aligned",
+                                "line-aligned"
+                            ],
+                            "default": "tag-aligned"
+                        }
+                    ]
+                }
+            ],
             "errorLevel": 0,
             "handledByTypescript": false,
             "config": [],
@@ -30391,7 +31113,7 @@
             "type": "layout",
             "fixable": "whitespace",
             "deprecated": false,
-            "recommended": true,
+            "recommended": false,
             "hasSuggestions": false,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
@@ -30619,7 +31341,7 @@
             "type": "layout",
             "fixable": "whitespace",
             "deprecated": false,
-            "recommended": true,
+            "recommended": false,
             "hasSuggestions": false,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
@@ -30641,12 +31363,12 @@
         },
         {
             "name": "@stylistic/jsx-indent",
-            "description": "Enforce JSX indentation",
+            "description": "Enforce JSX indentation. Deprecated, use `indent` rule instead.",
             "url": "https://eslint.style/rules/jsx/jsx-indent",
             "library": "@stylistic/eslint-plugin",
             "type": "layout",
             "fixable": "whitespace",
-            "deprecated": false,
+            "deprecated": true,
             "recommended": false,
             "hasSuggestions": false,
             "extendsBaseRule": false,
@@ -30878,7 +31600,8 @@
                                 "none",
                                 "literal",
                                 "single-child",
-                                "single-line"
+                                "single-line",
+                                "non-jsx"
                             ]
                         }
                     },
@@ -31039,7 +31762,7 @@
             "type": "layout",
             "fixable": "code",
             "deprecated": false,
-            "recommended": true,
+            "recommended": false,
             "hasSuggestions": false,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
@@ -31324,7 +32047,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -31556,7 +32279,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -32162,6 +32885,18 @@
                                     },
                                     "additionalProperties": false
                                 },
+                                "satisfies": {
+                                    "type": "object",
+                                    "properties": {
+                                        "before": {
+                                            "type": "boolean"
+                                        },
+                                        "after": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
                                 "set": {
                                     "type": "object",
                                     "properties": {
@@ -32507,7 +33242,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -32609,7 +33344,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -32867,6 +33602,37 @@
                             "type": "integer",
                             "minimum": 1,
                             "default": 1
+                        },
+                        "ignoredNodes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "BreakStatement",
+                                    "ClassDeclaration",
+                                    "ContinueStatement",
+                                    "DebuggerStatement",
+                                    "DoWhileStatement",
+                                    "ExpressionStatement",
+                                    "ForInStatement",
+                                    "ForOfStatement",
+                                    "ForStatement",
+                                    "FunctionDeclaration",
+                                    "IfStatement",
+                                    "ImportDeclaration",
+                                    "LabeledStatement",
+                                    "ReturnStatement",
+                                    "SwitchStatement",
+                                    "ThrowStatement",
+                                    "TryStatement",
+                                    "VariableDeclaration",
+                                    "WhileStatement",
+                                    "WithStatement",
+                                    "ExportNamedDeclaration",
+                                    "ExportDefaultDeclaration",
+                                    "ExportAllDeclaration"
+                                ]
+                            }
                         }
                     },
                     "additionalProperties": false
@@ -33210,7 +33976,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
@@ -33301,7 +34067,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [],
@@ -33693,7 +34459,7 @@
         {
             "name": "@stylistic/object-curly-newline",
             "description": "Enforce consistent line breaks after opening and before closing braces",
-            "url": "https://eslint.style/rules/js/object-curly-newline",
+            "url": "https://eslint.style/rules/ts/object-curly-newline",
             "library": "@stylistic/eslint-plugin",
             "type": "layout",
             "fixable": "whitespace",
@@ -33848,6 +34614,62 @@
                                             "minProperties": 1
                                         }
                                     ]
+                                },
+                                "TSTypeLiteral": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minProperties": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "minProperties": 1
+                                        }
+                                    ]
+                                },
+                                "TSInterfaceBody": {
+                                    "oneOf": [
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "always",
+                                                "never"
+                                            ]
+                                        },
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "multiline": {
+                                                    "type": "boolean"
+                                                },
+                                                "minProperties": {
+                                                    "type": "integer",
+                                                    "minimum": 0
+                                                },
+                                                "consistent": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "minProperties": 1
+                                        }
+                                    ]
                                 }
                             },
                             "additionalProperties": false,
@@ -33876,7 +34698,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -33909,7 +34731,7 @@
         {
             "name": "@stylistic/object-property-newline",
             "description": "Enforce placing object properties on separate lines",
-            "url": "https://eslint.style/rules/js/object-property-newline",
+            "url": "https://eslint.style/rules/ts/object-property-newline",
             "library": "@stylistic/eslint-plugin",
             "type": "layout",
             "fixable": "whitespace",
@@ -34102,7 +34924,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
@@ -34130,14 +34952,17 @@
                                     "multiline-block-like",
                                     "multiline-expression",
                                     "multiline-const",
+                                    "multiline-export",
                                     "multiline-let",
                                     "multiline-var",
                                     "singleline-const",
+                                    "singleline-export",
                                     "singleline-let",
                                     "singleline-var",
                                     "block",
                                     "empty",
                                     "function",
+                                    "ts-method",
                                     "break",
                                     "case",
                                     "class",
@@ -34160,6 +34985,7 @@
                                     "with",
                                     "cjs-export",
                                     "cjs-import",
+                                    "enum",
                                     "interface",
                                     "type",
                                     "function-overload"
@@ -34180,14 +35006,17 @@
                                         "multiline-block-like",
                                         "multiline-expression",
                                         "multiline-const",
+                                        "multiline-export",
                                         "multiline-let",
                                         "multiline-var",
                                         "singleline-const",
+                                        "singleline-export",
                                         "singleline-let",
                                         "singleline-var",
                                         "block",
                                         "empty",
                                         "function",
+                                        "ts-method",
                                         "break",
                                         "case",
                                         "class",
@@ -34210,6 +35039,7 @@
                                         "with",
                                         "cjs-export",
                                         "cjs-import",
+                                        "enum",
                                         "interface",
                                         "type",
                                         "function-overload"
@@ -34261,7 +35091,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
@@ -34333,7 +35163,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -34360,6 +35190,9 @@
                                     "type": "boolean"
                                 },
                                 "allowTemplateLiterals": {
+                                    "type": "boolean"
+                                },
+                                "ignoreStringLiterals": {
                                     "type": "boolean"
                                 }
                             },
@@ -34417,7 +35250,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": {
@@ -34561,7 +35394,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -34623,7 +35456,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -34732,7 +35565,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": false,
-            "extendsBaseRule": true,
+            "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
             "schema": [
@@ -35050,7 +35883,7 @@
             "type": "layout",
             "fixable": "whitespace",
             "deprecated": false,
-            "recommended": true,
+            "recommended": false,
             "hasSuggestions": false,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
@@ -35070,7 +35903,7 @@
             "type": "layout",
             "fixable": "whitespace",
             "deprecated": false,
-            "recommended": true,
+            "recommended": false,
             "hasSuggestions": false,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
