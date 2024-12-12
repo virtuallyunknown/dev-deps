@@ -113,6 +113,7 @@ export const RuleEditor = () => {
             <h2 className='mb-2 text-lg font-semibold text-gray-900'>Rule details</h2>
             <div className='grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-2'>
                 <RuleProp checked={selectedRule.deprecated} name='Deprecated' />
+                <RuleProp checked={selectedRule.removed} name='Removed' />
                 <RuleProp checked={selectedRule.recommended ? true : false} name='Recommended' />
                 <RuleProp checked={selectedRule.fixable ? true : false} name='Fixable' />
                 <RuleProp checked={selectedRule.hasSuggestions} name='Has Suggestions' />
@@ -149,7 +150,7 @@ export const RuleEditor = () => {
 
             <div className='mt-4 flex items-center justify-end gap-x-4'>
                 <Button color='gray' text='Cancel' onClick={() => setPage('rules')} />
-                <Button color='blue' text='Save' onClick={submitRule} />
+                <Button color='blue' text='Save' onClick={submitRule} disabled={selectedRule.removed} />
             </div>
 
             <hr className='my-2 h-px border-0 bg-gray-200' />

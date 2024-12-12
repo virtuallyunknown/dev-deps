@@ -7,6 +7,8 @@ export * from './ProjectDetails.js';
 export * from './RuleAdditions.js';
 export * from './RuleEditor.js';
 export * from './RuleList.js';
+export * from './RuleRemovals.js';
 export * from './RuleUpgrades.js';
 export * from './Sidebar.js';
 export * from './Toasts.js';
+

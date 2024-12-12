@@ -18,6 +18,7 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
     dependencies: [],
     rules: [],
     ruleAdditions: [],
+    ruleRemovals: [],
     ruleUpgrades: [],
     selectedRule: null,
     prevRule: null,
@@ -25,7 +26,8 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
     page: 'rules',
     filters: {
         enabled: null,
-        deprecated: false,
+        deprecated: null,
+        removed: null,
         recommended: null,
         extendsBaseRule: null,
         handledByTypescript: null,
@@ -61,6 +63,27 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
             get().createToast({ type: 'success', message: 'Rule updated.' });
             await get().hydrate();
             // set(() => ({ selectedRule: null, page: 'rules' }))
+        }
+    },
+    async removeRule(ruleName) {
+        const result = await trpc.updateRule.mutate({
+            ruleName: ruleName,
+            ruleUpdate: {
+                errorLevel: 0,
+                removed: true
+            }
+        });
+
+        if (!result.success) {
+            get().createToast({ type: 'error', message: 'Rule removal error. Check console for details.' });
+            for (const error of result.errors) {
+                console.error(error);
+            }
+        }
+
+        else {
+            get().createToast({ type: 'success', message: 'Rule removed, it will be disabled from configurations.' });
+            await get().hydrate();
         }
     },
     async upgradeRule(ruleUpgrade) {
@@ -147,7 +170,7 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
         /**
          * @see https://github.com/trpc/trpc/issues/5215
          */
-        const { ruleAdditions, ruleUpgrades } = await trpc.getUpgrades.query();
+        const { ruleAdditions, ruleRemovals, ruleUpgrades } = await trpc.getRuleChanges.query();
 
         set((state) => ({
             ...state,
@@ -155,8 +178,18 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
             name,
             dependencies,
             ruleAdditions,
+            ruleRemovals,
             ruleUpgrades: ruleUpgrades
         }));
+
+        // search for active and deprecated or removed rules, then warn the user via toast
+
+        const activeDeprecatedOrRemovedRules = rules.filter(rule => rule.errorLevel > 0 && (rule.deprecated || rule.removed));
+
+        if (activeDeprecatedOrRemovedRules.length > 0) {
+            console.log(activeDeprecatedOrRemovedRules);
+            get().createToast({ type: 'error', message: `There are ${activeDeprecatedOrRemovedRules.length} active but deprecated/removed rules. Action is required, check log for details.` });
+        }
     },
 }),
     shallow);

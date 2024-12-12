@@ -17,7 +17,7 @@ const MenuItem = ({ text, active, count, onClick }: { text: string, active: bool
 };
 
 export const Sidebar = () => {
-    const [page, filters, additions, upgrades] = useStore((state) => [state.page, state.filters, state.ruleAdditions, state.ruleUpgrades]);
+    const [page, filters, additions, removals, upgrades] = useStore((state) => [state.page, state.filters, state.ruleAdditions, state.ruleRemovals, state.ruleUpgrades]);
     const [updateFilter, setPage] = useStore((state) => [state.updateFilter, state.setPage]);
 
     return (
@@ -26,6 +26,7 @@ export const Sidebar = () => {
             <ul className='mb-8 cursor-pointer'>
                 <MenuItem active={page === 'rules'} text='Rule list' onClick={() => setPage('rules')} />
                 <MenuItem active={page === 'additions'} count={additions.length} text='Rule additions' onClick={() => setPage('additions')} />
+                <MenuItem active={page === 'removals'} count={removals.length} text='Rule removals' onClick={() => setPage('removals')} />
                 <MenuItem active={page === 'upgrades'} count={upgrades.length} text='Rule upgrades' onClick={() => setPage('upgrades')} />
                 <MenuItem active={page === 'project'} text='Project details' onClick={() => setPage('project')} />
             </ul>

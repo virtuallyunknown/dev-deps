@@ -56,12 +56,13 @@ export const ProjectDetails = () => {
             </ul>
 
             <hr className='my-2 h-px border-0 bg-gray-200'></hr>
-            <h2 className='mb-2 text-lg font-semibold text-gray-900'>Stats</h2>
+            <h2 className='mb-2 text-lg font-semibold text-gray-900'>Stats (sidebar filters apply)</h2>
             <ul className='list-inside list-disc space-y-1 text-gray-500'>
                 <li>name: {name}</li>
                 <li>rules in database: {rules.length}</li>
                 <li>enabled rules: {rules.filter(rule => rule.errorLevel > 0).length}</li>
                 <li>deprecated rules: {rules.filter(rule => rule.deprecated === true).length}</li>
+                <li>removed rules: {rules.filter(rule => rule.removed === true).length}</li>
                 <li>upgradeable rules: {ruleUpgrades.length}</li>
                 <li>newly available rules: {ruleAdditions.length}</li>
             </ul>
@@ -69,7 +70,7 @@ export const ProjectDetails = () => {
             <h2 className='mb-2 text-lg font-semibold text-gray-900'>Tools</h2>
             <div className='flex items-center gap-x-2'>
                 <Button color='gray' size='normal' text='Validate all rules' onClick={validateAllRules} />
-                <Button color='gray' size='normal' text='Check for active deprecated rules' />
+                <Button color='gray' size='normal' text='Check for active deprecated/removed rules' />
                 <Button color='gray' size='normal' text='Create configuration files' onClick={writeConfiguration} />
             </div>
         </>

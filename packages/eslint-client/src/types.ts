@@ -17,12 +17,13 @@ export type StoreProps = {
     dependencies: Dependencies;
     rules: Rule[];
     ruleAdditions: BaseRule[];
+    ruleRemovals: BaseRule[];
     ruleUpgrades: RuleUpgrade[];
     selectedRule: Rule | null;
     prevRule: Rule | null;
     nextRule: Rule | null;
     filters: RuleFilters;
-    page: 'rules' | 'upgrades' | 'additions' | 'project' | 'editor';
+    page: 'rules' | 'upgrades' | 'additions' | 'removals' | 'project' | 'editor';
     toasts: Toast[];
 };
 
@@ -31,6 +32,7 @@ export type StoreActions = {
     updateFilter: <K extends keyof RuleFilters, V extends RuleFilters>(key: K, value: V[K]) => Promise<void>;
     addRule: (ruleAddition: BaseRule) => Promise<void>;
     updateRule: (ruleName: string, ruleUpdate: RuleUpdate) => Promise<void>;
+    removeRule: (ruleName: string) => Promise<void>;
     upgradeRule: (ruleUpgrade: BaseRule) => Promise<void>;
     validateAllRules: () => Promise<void>;
     writeConfiguration: () => Promise<void>;

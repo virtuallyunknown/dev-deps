@@ -6,7 +6,10 @@ export const eslintPluginStylisticConfig = [
             '@stylistic': stylistic,
         },
         rules: {
-            '@stylistic/array-element-newline': [1, 'consistent'],
+            '@stylistic/array-element-newline': [
+                1,
+                { consistent: true, multiline: true },
+            ],
             '@stylistic/brace-style': [
                 1,
                 'stroustrup',

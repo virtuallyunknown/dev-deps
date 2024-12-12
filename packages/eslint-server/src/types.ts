@@ -133,6 +133,8 @@ export const extendedRuleSchema = z.object({
         ])
     )
         .default([]),
+    removed: z.boolean()
+        .default(false),
     updatedAt: z.string()
         .datetime()
         .default(new Date().toISOString()),
@@ -167,6 +169,7 @@ export const databaseSchema = z.object({
 export const ruleFilterSchema = z.object({
     enabled: z.boolean().nullable(),
     deprecated: z.boolean().nullable(),
+    removed: z.boolean().nullable(),
     handledByTypescript: z.boolean().nullable(),
     recommended: z.boolean().nullable(),
     extendsBaseRule: z.boolean().nullable(),

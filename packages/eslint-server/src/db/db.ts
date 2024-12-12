@@ -100,6 +100,7 @@ class JSONDb {
             rules: this.db.rules.filter(rule =>
                 (filters.enabled === null || (filters.enabled === true ? rule.errorLevel > 0 : rule.errorLevel === 0)) &&
                 (filters.deprecated === null || filters.deprecated === rule.deprecated) &&
+                (filters.removed === null || filters.removed === rule.removed) &&
                 (filters.recommended === null || filters.recommended === Boolean(rule.recommended)) &&
                 (filters.extendsBaseRule === null || filters.extendsBaseRule === Boolean(rule.extendsBaseRule)) &&
                 (filters.handledByTypescript === null || filters.handledByTypescript === rule.handledByTypescript) &&
@@ -111,33 +112,45 @@ class JSONDb {
         return this.db.rules.find(rule => rule.name === name);
     }
 
-    public getRuleUpgrades() {
+    public getRuleChanges() {
         const libRules = getBaseRules();
 
         const ruleAdditions: BaseRule[] = [];
         const ruleUpgrades = [];
+        const ruleRemovals = [];
 
-        for (const rule of libRules) {
-            const dbRule = this.db.rules.find(r => r.name === rule.name);
+        for (const libRule of libRules) {
+            const dbRule = this.db.rules.find(r => r.name === libRule.name);
 
             if (!dbRule) {
-                ruleAdditions.push(rule);
+                ruleAdditions.push(libRule);
                 continue;
             }
 
-            const diffs = microdiff(baseRuleSchema.parse(dbRule), rule);
+            const diffs = microdiff(baseRuleSchema.parse(dbRule), libRule);
 
             if (diffs.length > 0) {
                 ruleUpgrades.push({
-                    upgrade: rule,
+                    upgrade: libRule,
                     diffs: diffWrapper(diffs),
                     dbRule: dbRule
                 });
             }
         }
 
+        const nonRemovedDbRules = this.db.rules.filter(r => r.removed === false);
+
+        for (const dbRule of nonRemovedDbRules) {
+            const libRule = libRules.find(r => r.name === dbRule.name);
+
+            if (!libRule) {
+                ruleRemovals.push(dbRule);
+            }
+        }
+
         return {
             ruleAdditions,
+            ruleRemovals,
             ruleUpgrades
         };
     }
@@ -219,7 +232,6 @@ class JSONDb {
         } as const;
     }
 
-
     public validateAllRules() {
         const errors = [];
 
@@ -272,27 +284,29 @@ class JSONDb {
             const ruleData = [
                 {
                     fileName: 'base.js',
-                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === 'eslint')
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.removed === false && r.library === 'eslint')
                 },
                 {
                     fileName: 'typescript.js',
-                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === 'typescript-eslint')
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.removed === false && r.library === 'typescript-eslint')
                 },
                 {
                     fileName: 'react.js',
-                    rules: this.db.rules.filter(r => r.errorLevel > 0 && (r.library === 'eslint-plugin-react' || r.library === 'eslint-plugin-react-hooks'))
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.removed === false && (r.library === 'eslint-plugin-react' || r.library === 'eslint-plugin-react-hooks'))
                 },
                 {
                     fileName: 'unicorn.js',
-                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === 'eslint-plugin-unicorn')
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.removed === false && r.library === 'eslint-plugin-unicorn')
                 },
                 {
                     fileName: 'stylistic.js',
-                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.library === '@stylistic/eslint-plugin')
+                    rules: this.db.rules.filter(r => r.errorLevel > 0 && r.removed === false && r.library === '@stylistic/eslint-plugin')
                 }
             ];
 
             recreateDir('../eslint-config/src');
+
+            console.log(ruleData[0].rules);
 
             for (const config of ruleData) {
                 writeFileSync(`../eslint-config/src/${config.fileName}`, await this.prepareConfig(`./configs/${config.fileName}`, config.rules), { encoding: 'utf-8' });

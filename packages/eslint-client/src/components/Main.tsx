@@ -1,5 +1,5 @@
 import { useStore } from '../util/index.js';
-import { ProjectDetails, RuleAdditions, RuleEditor, RuleList, RuleUpgrades, Toasts } from './index.js';
+import { ProjectDetails, RuleAdditions, RuleEditor, RuleList, RuleRemovals, RuleUpgrades, Toasts } from './index.js';
 
 export const Main = () => {
     const [page] = useStore(state => [state.page]);
@@ -9,6 +9,7 @@ export const Main = () => {
             {page === 'rules' && <RuleList />}
             {page === 'upgrades' && <RuleUpgrades />}
             {page === 'additions' && <RuleAdditions />}
+            {page === 'removals' && <RuleRemovals />}
             {page === 'editor' && <RuleEditor />}
             {page === 'project' && <ProjectDetails />}
             <Toasts />

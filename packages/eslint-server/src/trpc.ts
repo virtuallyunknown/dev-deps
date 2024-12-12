@@ -16,9 +16,9 @@ const appRouter = t.router({
         .query((opts) => {
             return db.getDb(opts.input);
         }),
-    getUpgrades: t.procedure
+    getRuleChanges: t.procedure
         .query(() => {
-            return db.getRuleUpgrades();
+            return db.getRuleChanges();
         }),
     getRuleByName: t.procedure
         .input(ruleSchema.shape.name)

@@ -14,6 +14,7 @@ export const RuleList = () => {
                             <ErrorLevel level={rule.errorLevel} />
                             <h6 className='cursor-pointer text-lg font-semibold hover:underline' onClick={() => setPage('editor', rule)}>{rule.name}</h6>
                             {rule.deprecated ? <Badge type='deprecated' /> : null}
+                            {rule.removed === true ? <Badge type='removed' /> : null}
                         </div>
 
                         <div className='flex items-center justify-between gap-x-2'>

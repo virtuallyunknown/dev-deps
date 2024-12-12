@@ -20,7 +20,6 @@ export const eslintPluginTypescriptConfig = [
                     'ts-nocheck': 'allow-with-description',
                 },
             ],
-            '@typescript-eslint/ban-types': 1,
             '@typescript-eslint/consistent-type-exports': 1,
             '@typescript-eslint/consistent-type-imports': 1,
             '@typescript-eslint/explicit-member-accessibility': [
