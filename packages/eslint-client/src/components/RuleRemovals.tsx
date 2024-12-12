@@ -1,5 +1,5 @@
 import { Description, useStore } from '../util/index.js';
-import { Badge, Button } from './index.js';
+import { Badge, Button, ErrorLevel } from './index.js';
 
 export const RuleRemovals = () => {
     const [ruleRemovals] = useStore(state => [state.ruleRemovals]);
@@ -12,6 +12,7 @@ export const RuleRemovals = () => {
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-x-2'>
                             <h6 className='cursor-pointer text-lg font-semibold hover:underline'>{rule.name}</h6>
+                            <ErrorLevel level={rule.errorLevel} />
                             {rule.deprecated ? <Badge type='deprecated' /> : null}
                         </div>
                         <Button color='gray' size='small' text='Remove and deactivate' onClick={() => removeRule(rule.name)} />

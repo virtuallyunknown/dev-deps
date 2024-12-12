@@ -17,7 +17,7 @@ export type StoreProps = {
     dependencies: Dependencies;
     rules: Rule[];
     ruleAdditions: BaseRule[];
-    ruleRemovals: BaseRule[];
+    ruleRemovals: Rule[];
     ruleUpgrades: RuleUpgrade[];
     selectedRule: Rule | null;
     prevRule: Rule | null;
