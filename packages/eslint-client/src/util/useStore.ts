@@ -1,3 +1,4 @@
+import superjson from 'superjson';
 import { shallow } from 'zustand/shallow';
 import { createWithEqualityFn } from 'zustand/traditional';
 import type { StoreActions, StoreProps } from '../types.js';
@@ -11,6 +12,7 @@ const trpc = createTRPCProxyClient<AppRouter>({
             url: 'http://localhost:3000/trpc',
         }),
     ],
+    transformer: superjson,
 });
 
 export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, get) => ({
@@ -87,6 +89,7 @@ export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, 
         }
     },
     async upgradeRule(ruleUpgrade) {
+        console.log(ruleUpgrade);
         const result = await trpc.upgradeRule.mutate(ruleUpgrade);
 
         if (!result.success) {

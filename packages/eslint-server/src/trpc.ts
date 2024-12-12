@@ -1,6 +1,7 @@
 import { initTRPC } from '@trpc/server';
 import type { CreateExpressContextOptions } from '@trpc/server/adapters/express';
 import { createExpressMiddleware } from '@trpc/server/adapters/express';
+import superjson from 'superjson';
 import { z } from 'zod';
 import { db } from './db/db.js';
 import { baseRuleSchema, extendedRuleSchema, ruleFilterSchema, ruleSchema } from './types.js';
@@ -8,7 +9,9 @@ import { baseRuleSchema, extendedRuleSchema, ruleFilterSchema, ruleSchema } from
 const createContext = ({ req, res }: CreateExpressContextOptions) => ({});
 const t = initTRPC
     .context<Awaited<ReturnType<typeof createContext>>>()
-    .create();
+    .create({
+        transformer: superjson
+    });
 
 const appRouter = t.router({
     getDb: t.procedure
