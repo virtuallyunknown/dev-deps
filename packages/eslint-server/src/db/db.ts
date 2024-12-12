@@ -306,8 +306,6 @@ class JSONDb {
 
             recreateDir('../eslint-config/src');
 
-            console.log(ruleData[0].rules);
-
             for (const config of ruleData) {
                 writeFileSync(`../eslint-config/src/${config.fileName}`, await this.prepareConfig(`./configs/${config.fileName}`, config.rules), { encoding: 'utf-8' });
             }
