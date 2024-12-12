@@ -17,6 +17,7 @@ export const eslintBaseConfig = [
                 },
             ],
             'no-invalid-regexp': 2,
+            'no-loss-of-precision': 2,
             'no-param-reassign': [1, { props: false }],
             'no-promise-executor-return': [2, { allowVoid: true }],
             'no-prototype-builtins': 1,

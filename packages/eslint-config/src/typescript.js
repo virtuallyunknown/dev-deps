@@ -30,12 +30,16 @@ export const eslintPluginTypescriptConfig = [
                 },
             ],
             '@typescript-eslint/method-signature-style': [1, 'property'],
+            '@typescript-eslint/no-deprecated': 1,
+            '@typescript-eslint/no-empty-object-type': [
+                1,
+                { allowInterfaces: 'with-single-extends' },
+            ],
             '@typescript-eslint/no-explicit-any': [1, { ignoreRestArgs: true }],
             '@typescript-eslint/no-floating-promises': [
                 2,
                 { ignoreVoid: true, ignoreIIFE: true },
             ],
-            '@typescript-eslint/no-loss-of-precision': 2,
             '@typescript-eslint/no-misused-promises': [
                 2,
                 { checksVoidReturn: { arguments: false, attributes: false } },
@@ -47,7 +51,9 @@ export const eslintPluginTypescriptConfig = [
                 { allowConstantLoopConditions: true },
             ],
             '@typescript-eslint/no-unsafe-assignment': 1,
+            '@typescript-eslint/no-unsafe-function-type': 1,
             '@typescript-eslint/no-unsafe-member-access': 1,
+            '@typescript-eslint/no-wrapper-object-types': 2,
             '@typescript-eslint/only-throw-error': 1,
             '@typescript-eslint/prefer-as-const': 1,
             '@typescript-eslint/prefer-nullish-coalescing': [
