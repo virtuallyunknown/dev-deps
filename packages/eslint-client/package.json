@@ -15,7 +15,6 @@
         "@trpc/client": "^10.45.2",
         "@uiw/codemirror-extensions-langs": "^4.23.6",
         "@uiw/codemirror-theme-github": "^4.23.6",
-        "@uiw/codemirror-themes": "^4.23.6",
         "@uiw/react-codemirror": "^4.23.6",
         "@virtuallyunknown/eslint-server": "workspace:*",
         "clsx": "^2.1.1",

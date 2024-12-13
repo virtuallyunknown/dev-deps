@@ -77,9 +77,6 @@ importers:
       '@uiw/codemirror-theme-github':
         specifier: ^4.23.6
         version: 4.23.6(@codemirror/language@6.10.6)(@codemirror/state@6.4.1)(@codemirror/view@6.35.2)
-      '@uiw/codemirror-themes':
-        specifier: ^4.23.6
-        version: 4.23.6(@codemirror/language@6.10.6)(@codemirror/state@6.4.1)(@codemirror/view@6.35.2)
       '@uiw/react-codemirror':
         specifier: ^4.23.6
         version: 4.23.6(@babel/runtime@7.26.0)(@codemirror/autocomplete@6.18.3(@codemirror/language@6.10.6)(@codemirror/state@6.4.1)(@codemirror/view@6.35.2)(@lezer/common@1.2.3))(@codemirror/language@6.10.6)(@codemirror/lint@6.8.4)(@codemirror/search@6.5.6)(@codemirror/state@6.4.1)(@codemirror/theme-one-dark@6.1.2)(@codemirror/view@6.35.2)(codemirror@6.0.1(@lezer/common@1.2.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
