@@ -2,13 +2,13 @@
     "name": "@virtuallyunknown/eslint-server",
     "dependencies": [
         {
-            "@stylistic/eslint-plugin": "2.12.0"
+            "@stylistic/eslint-plugin": "3.0.0"
         },
         {
-            "eslint": "9.16.0"
+            "eslint": "9.19.0"
         },
         {
-            "eslint-plugin-react": "7.37.2"
+            "eslint-plugin-react": "7.37.4"
         },
         {
             "eslint-plugin-react-hooks": "5.1.0"
@@ -17,7 +17,7 @@
             "eslint-plugin-unicorn": "56.0.1"
         },
         {
-            "typescript-eslint": "8.18.0"
+            "typescript-eslint": "8.22.0"
         }
     ],
     "rules": [
@@ -1085,7 +1085,7 @@
         },
         {
             "name": "default-case-last",
-            "description": "Enforce default clauses in switch statements to be last",
+            "description": "Enforce `default` clauses in `switch` statements to be last",
             "url": "https://eslint.org/docs/latest/rules/default-case-last",
             "library": "eslint",
             "type": "suggestion",
@@ -1281,7 +1281,7 @@
         },
         {
             "name": "for-direction",
-            "description": "Enforce \"for\" loop update clause moving the counter in the right direction",
+            "description": "Enforce `for` loop update clause moving the counter in the right direction",
             "url": "https://eslint.org/docs/latest/rules/for-direction",
             "library": "eslint",
             "type": "problem",
@@ -7265,7 +7265,7 @@
         },
         {
             "name": "no-param-reassign",
-            "description": "Disallow reassigning `function` parameters",
+            "description": "Disallow reassigning function parameters",
             "url": "https://eslint.org/docs/latest/rules/no-param-reassign",
             "library": "eslint",
             "type": "suggestion",
@@ -8169,7 +8169,7 @@
         },
         {
             "name": "no-script-url",
-            "description": "Disallow `javascript:` urls",
+            "description": "Disallow `javascript:` URLs",
             "url": "https://eslint.org/docs/latest/rules/no-script-url",
             "library": "eslint",
             "type": "suggestion",
@@ -9032,7 +9032,7 @@
             "fixable": null,
             "deprecated": false,
             "recommended": true,
-            "hasSuggestions": false,
+            "hasSuggestions": true,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
@@ -10577,7 +10577,7 @@
         },
         {
             "name": "prefer-object-spread",
-            "description": "Disallow using Object.assign with an object literal as the first argument and prefer the use of object spread instead",
+            "description": "Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead",
             "url": "https://eslint.org/docs/latest/rules/prefer-object-spread",
             "library": "eslint",
             "type": "suggestion",
@@ -11023,7 +11023,7 @@
         },
         {
             "name": "require-unicode-regexp",
-            "description": "Enforce the use of `u` or `v` flag on RegExp",
+            "description": "Enforce the use of `u` or `v` flag on regular expressions",
             "url": "https://eslint.org/docs/latest/rules/require-unicode-regexp",
             "library": "eslint",
             "type": "suggestion",
@@ -11243,7 +11243,7 @@
         },
         {
             "name": "sort-imports",
-            "description": "Enforce sorted import declarations within modules",
+            "description": "Enforce sorted `import` declarations within modules",
             "url": "https://eslint.org/docs/latest/rules/sort-imports",
             "library": "eslint",
             "type": "suggestion",
@@ -12767,7 +12767,7 @@
             "fixable": "code",
             "deprecated": false,
             "recommended": true,
-            "hasSuggestions": false,
+            "hasSuggestions": true,
             "extendsBaseRule": false,
             "requiresTypeChecking": false,
             "replacedBy": [],
@@ -12855,6 +12855,15 @@
                             "type": "object",
                             "additionalProperties": false,
                             "properties": {
+                                "arrayLiteralTypeAssertions": {
+                                    "type": "string",
+                                    "description": "Whether to always prefer type declarations for array literals used as variable initializers, rather than type assertions.",
+                                    "enum": [
+                                        "allow",
+                                        "allow-as-parameter",
+                                        "never"
+                                    ]
+                                },
                                 "assertionStyle": {
                                     "type": "string",
                                     "description": "The expected assertion style to enforce.",
@@ -12872,10 +12881,7 @@
                                         "never"
                                     ]
                                 }
-                            },
-                            "required": [
-                                "assertionStyle"
-                            ]
+                            }
                         }
                     ]
                 }
@@ -17588,7 +17594,125 @@
             "extendsBaseRule": false,
             "requiresTypeChecking": true,
             "replacedBy": [],
-            "schema": [],
+            "schema": [
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "allow": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "from": {
+                                                "enum": [
+                                                    "file"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "minItems": 1,
+                                                        "type": "array",
+                                                        "uniqueItems": true
+                                                    }
+                                                ]
+                                            },
+                                            "path": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "from",
+                                            "name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "from": {
+                                                "enum": [
+                                                    "lib"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "minItems": 1,
+                                                        "type": "array",
+                                                        "uniqueItems": true
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "from",
+                                            "name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "from": {
+                                                "enum": [
+                                                    "package"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "minItems": 1,
+                                                        "type": "array",
+                                                        "uniqueItems": true
+                                                    }
+                                                ]
+                                            },
+                                            "package": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "from",
+                                            "name",
+                                            "package"
+                                        ],
+                                        "type": "object"
+                                    }
+                                ]
+                            },
+                            "type": "array",
+                            "description": "Type specifiers that can be allowed."
+                        }
+                    }
+                }
+            ],
             "errorLevel": 1,
             "handledByTypescript": false,
             "config": [],
@@ -18758,6 +18882,145 @@
             "note": null
         },
         {
+            "name": "@typescript-eslint/no-misused-spread",
+            "description": "Disallow using the spread operator when it might cause unexpected behavior",
+            "url": "https://typescript-eslint.io/rules/no-misused-spread",
+            "library": "typescript-eslint",
+            "type": "problem",
+            "fixable": null,
+            "deprecated": false,
+            "recommended": true,
+            "hasSuggestions": false,
+            "extendsBaseRule": false,
+            "requiresTypeChecking": true,
+            "replacedBy": [],
+            "schema": [
+                {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "allow": {
+                            "items": {
+                                "oneOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "from": {
+                                                "enum": [
+                                                    "file"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "minItems": 1,
+                                                        "type": "array",
+                                                        "uniqueItems": true
+                                                    }
+                                                ]
+                                            },
+                                            "path": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "from",
+                                            "name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "from": {
+                                                "enum": [
+                                                    "lib"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "minItems": 1,
+                                                        "type": "array",
+                                                        "uniqueItems": true
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "from",
+                                            "name"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "from": {
+                                                "enum": [
+                                                    "package"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "minItems": 1,
+                                                        "type": "array",
+                                                        "uniqueItems": true
+                                                    }
+                                                ]
+                                            },
+                                            "package": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "from",
+                                            "name",
+                                            "package"
+                                        ],
+                                        "type": "object"
+                                    }
+                                ]
+                            },
+                            "type": "array",
+                            "description": "An array of type specifiers that are known to be safe to spread."
+                        }
+                    }
+                }
+            ],
+            "errorLevel": 0,
+            "handledByTypescript": false,
+            "config": [],
+            "removed": false,
+            "updatedAt": "2025-01-28T14:32:18.140Z",
+            "note": null
+        },
+        {
             "name": "@typescript-eslint/no-mixed-enums",
             "description": "Disallow enums from having both number and string members",
             "url": "https://typescript-eslint.io/rules/no-mixed-enums",
@@ -19269,7 +19532,9 @@
                             "enum": [
                                 "all",
                                 "functions",
-                                "never"
+                                "functions-and-types",
+                                "never",
+                                "types"
                             ]
                         },
                         "ignoreFunctionTypeParameterNameValueShadow": {
@@ -20230,7 +20495,7 @@
         },
         {
             "name": "@typescript-eslint/non-nullable-type-assertion-style",
-            "description": "Enforce non-null assertions over explicit type casts",
+            "description": "Enforce non-null assertions over explicit type assertions",
             "url": "https://typescript-eslint.io/rules/non-nullable-type-assertion-style",
             "library": "typescript-eslint",
             "type": "suggestion",
@@ -21284,7 +21549,7 @@
         },
         {
             "name": "@typescript-eslint/prefer-reduce-type-parameter",
-            "description": "Enforce using type parameter when calling `Array#reduce` instead of casting",
+            "description": "Enforce using type parameter when calling `Array#reduce` instead of using a type assertion",
             "url": "https://typescript-eslint.io/rules/prefer-reduce-type-parameter",
             "library": "typescript-eslint",
             "type": "problem",
@@ -21814,7 +22079,7 @@
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": true,
-            "extendsBaseRule": "no-return-await",
+            "extendsBaseRule": false,
             "requiresTypeChecking": true,
             "replacedBy": [],
             "schema": [
@@ -22164,7 +22429,7 @@
             "url": "https://typescript-eslint.io/rules/strict-boolean-expressions",
             "library": "typescript-eslint",
             "type": "suggestion",
-            "fixable": "code",
+            "fixable": null,
             "deprecated": false,
             "recommended": false,
             "hasSuggestions": true,
@@ -32271,6 +32536,10 @@
                             "type": "boolean",
                             "default": false
                         },
+                        "offsetTernaryExpressionsOffsetCallExpressions": {
+                            "type": "boolean",
+                            "default": true
+                        },
                         "ignoredNodes": {
                             "type": "array",
                             "items": {
@@ -33571,6 +33840,22 @@
                                 },
                                 "afterColon": {
                                     "type": "boolean"
+                                },
+                                "ignoredNodes": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "ObjectExpression",
+                                            "ObjectPattern",
+                                            "ImportDeclaration",
+                                            "ExportNamedDeclaration",
+                                            "ExportAllDeclaration",
+                                            "TSTypeLiteral",
+                                            "TSInterfaceBody",
+                                            "ClassBody"
+                                        ]
+                                    }
                                 }
                             },
                             "additionalProperties": false
@@ -35521,6 +35806,9 @@
                                     },
                                     "allowParensAfterCommentPattern": {
                                         "type": "string"
+                                    },
+                                    "nestedConditionalExpressions": {
+                                        "type": "boolean"
                                     }
                                 },
                                 "additionalProperties": false
@@ -36361,7 +36649,9 @@
                             "type": "string",
                             "enum": [
                                 "always",
-                                "never"
+                                "never",
+                                "start",
+                                "end"
                             ]
                         },
                         {
@@ -36371,21 +36661,27 @@
                                     "type": "string",
                                     "enum": [
                                         "always",
-                                        "never"
+                                        "never",
+                                        "start",
+                                        "end"
                                     ]
                                 },
                                 "switches": {
                                     "type": "string",
                                     "enum": [
                                         "always",
-                                        "never"
+                                        "never",
+                                        "start",
+                                        "end"
                                     ]
                                 },
                                 "classes": {
                                     "type": "string",
                                     "enum": [
                                         "always",
-                                        "never"
+                                        "never",
+                                        "start",
+                                        "end"
                                     ]
                                 }
                             },
@@ -36689,7 +36985,19 @@
                                     "type": "boolean"
                                 },
                                 "allowTemplateLiterals": {
-                                    "type": "boolean"
+                                    "anyOf": [
+                                        {
+                                            "type": "boolean"
+                                        },
+                                        {
+                                            "type": "string",
+                                            "enum": [
+                                                "never",
+                                                "avoidEscape",
+                                                "always"
+                                            ]
+                                        }
+                                    ]
                                 },
                                 "ignoreStringLiterals": {
                                     "type": "boolean"
@@ -36705,11 +37013,11 @@
             "config": [
                 "single",
                 {
-                    "allowTemplateLiterals": true
+                    "allowTemplateLiterals": "always"
                 }
             ],
             "removed": false,
-            "updatedAt": "2024-01-18T17:49:53.785Z",
+            "updatedAt": "2025-01-28T14:28:05.168Z",
             "note": null
         },
         {

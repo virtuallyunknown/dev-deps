@@ -150,7 +150,7 @@ export const RuleEditor = () => {
 
             <div className='mt-4 flex items-center justify-end gap-x-4'>
                 <Button color='gray' text='Cancel' onClick={() => setPage('rules')} />
-                <Button color='blue' text='Save' onClick={submitRule} disabled={selectedRule.removed} />
+                <Button color='blue' disabled={selectedRule.removed} text='Save' onClick={submitRule} />
             </div>
 
             <hr className='my-2 h-px border-0 bg-gray-200' />
