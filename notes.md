@@ -17,3 +17,13 @@ quietly install newer version, even though in package.json it will output 9.4 fo
 but the installed version could be 9.8, leading to some confusion.
 
 Running pnpm update will still work and offer updates.
+
+### Fixing codemirror issues
+
+Try the following commands:
+
+```sh
+rm -rf **/node_modules
+pnpm i
+pnpm dedupe
+```
