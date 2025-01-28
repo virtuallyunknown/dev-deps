@@ -71,7 +71,11 @@ export const eslintPluginStylisticConfig = [
             '@stylistic/multiline-ternary': [1, 'always-multiline'],
             '@stylistic/object-curly-newline': [1, { consistent: true }],
             '@stylistic/quote-props': [1, 'consistent-as-needed'],
-            '@stylistic/quotes': [1, 'single', { allowTemplateLiterals: true }],
+            '@stylistic/quotes': [
+                1,
+                'single',
+                { allowTemplateLiterals: 'always' },
+            ],
             '@stylistic/semi': [
                 1,
                 'always',

@@ -22528,11 +22528,12 @@
             "handledByTypescript": false,
             "config": [
                 {
+                    "considerDefaultExhaustiveForUnions": true,
                     "requireDefaultForNonUnion": true
                 }
             ],
             "removed": false,
-            "updatedAt": "2024-01-17T00:54:07.118Z",
+            "updatedAt": "2025-01-28T14:56:03.215Z",
             "note": null
         },
         {

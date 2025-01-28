@@ -68,7 +68,10 @@ export const eslintPluginTypescriptConfig = [
             '@typescript-eslint/require-await': 1,
             '@typescript-eslint/switch-exhaustiveness-check': [
                 1,
-                { requireDefaultForNonUnion: true },
+                {
+                    considerDefaultExhaustiveForUnions: true,
+                    requireDefaultForNonUnion: true,
+                },
             ],
         },
     },
