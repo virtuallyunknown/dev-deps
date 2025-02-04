@@ -42,7 +42,8 @@
     "pnpm": {
         "updateConfig": {
             "ignoreDependencies": [
-                "ajv"
+                "ajv",
+                "tailwindcss"
             ]
         }
     }
