@@ -1,10 +1,9 @@
 ### Installation:
 
-1. Install the package:
+1. Install the package **and** eslint:
 
 ```zsh
-npm i @virtuallyunknown/eslint-config -D
-pnpm add @virtuallyunknown/eslint-config -D
+pnpm add eslint @virtuallyunknown/eslint-config -D
 ```
 
 1. Create `eslint.config.js` file and add the following:
@@ -78,10 +77,10 @@ const eslintPluginTailwindCssConfig = [
 
 ### List of dependencies:
 
--   [eslint](https://eslint.org)
--   [typescript-eslint](https://typescript-eslint.io)
--   [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
--   [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
--   [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
--   [@stylistic/eslint-plugin](https://eslint.style)
--   [globals](https://github.com/sindresorhus/globals)
+- [eslint](https://eslint.org)
+- [typescript-eslint](https://typescript-eslint.io)
+- [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)
+- [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
+- [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
+- [@stylistic/eslint-plugin](https://eslint.style)
+- [globals](https://github.com/sindresorhus/globals)
