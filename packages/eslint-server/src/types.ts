@@ -80,9 +80,13 @@ export const baseRuleSchema = z.object({
         .optional()
         .nullable()
         .default(null),
-    deprecated: z.boolean()
-        .optional()
-        .default(false),
+    deprecated: z.union([
+        z.boolean(),
+        z.object({
+            message: z.string().optional(),
+            url: z.string().url().optional()
+        })
+    ]).optional().default(false),
     recommended: z.union([
         z.string(),
         z.boolean(),
