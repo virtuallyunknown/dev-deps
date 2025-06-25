@@ -50,6 +50,7 @@ export const eslintPluginTypescriptConfig = [
                 1,
                 { allowConstantLoopConditions: true },
             ],
+            '@typescript-eslint/no-unnecessary-type-conversion': 1,
             '@typescript-eslint/no-unsafe-assignment': 1,
             '@typescript-eslint/no-unsafe-function-type': 1,
             '@typescript-eslint/no-unsafe-member-access': 1,

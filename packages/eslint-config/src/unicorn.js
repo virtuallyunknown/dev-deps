@@ -11,6 +11,7 @@ export const eslintPluginUnicornConfig = [
             'unicorn/no-invalid-remove-event-listener': 2,
             'unicorn/no-unnecessary-await': 1,
             'unicorn/no-useless-fallback-in-spread': 2,
+            'unicorn/prefer-import-meta-properties': 1,
             'unicorn/prefer-json-parse-buffer': 1,
             'unicorn/prefer-node-protocol': 1,
         },
