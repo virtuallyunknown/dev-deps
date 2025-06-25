@@ -10,11 +10,11 @@
     "dependencies": {
         "@virtuallyunknown/eslint-config": "workspace:*",
         "@virtuallyunknown/tsconfig": "workspace:*",
-        "axios": "^1.7.9",
+        "axios": "^1.10.0",
         "enquirer": "^2.4.1",
-        "semver": "^7.6.3"
+        "semver": "^7.7.2"
     },
     "devDependencies": {
-        "@types/semver": "^7.5.8"
+        "@types/semver": "^7.7.0"
     }
 }

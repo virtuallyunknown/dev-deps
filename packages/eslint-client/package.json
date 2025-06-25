@@ -9,30 +9,30 @@
         "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0 --report-unused-disable-directives"
     },
     "dependencies": {
-        "@codemirror/lang-json": "^6.0.1",
-        "@codemirror/lint": "^6.8.4",
+        "@codemirror/lang-json": "^6.0.2",
+        "@codemirror/lint": "^6.8.5",
         "@lezer/highlight": "^1.2.1",
-        "@trpc/client": "^10.45.2",
-        "@uiw/codemirror-extensions-langs": "^4.23.6",
-        "@uiw/codemirror-theme-github": "^4.23.6",
-        "@uiw/react-codemirror": "^4.23.6",
+        "@trpc/client": "^11.4.2",
+        "@uiw/codemirror-extensions-langs": "^4.23.13",
+        "@uiw/codemirror-theme-github": "^4.23.13",
+        "@uiw/react-codemirror": "^4.23.13",
         "@virtuallyunknown/eslint-server": "workspace:*",
         "clsx": "^2.1.1",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
         "superjson": "^2.2.2",
-        "zod": "^3.24.1",
-        "zustand": "^5.0.3"
+        "zod": "^3.25.67",
+        "zustand": "^5.0.5"
     },
     "devDependencies": {
         "@types/eslint": "^9.6.1",
-        "@types/react": "^19.0.8",
-        "@types/react-dom": "^19.0.3",
+        "@types/react": "^19.1.8",
+        "@types/react-dom": "^19.1.6",
         "@virtuallyunknown/esbuild": "workspace:*",
         "@virtuallyunknown/eslint-config": "workspace:*",
         "@virtuallyunknown/tsconfig": "workspace:*",
         "eslint-plugin-tailwindcss": "^3.18.0",
         "tailwindcss": "^3.4.16",
-        "typescript": "^5.7.3"
+        "typescript": "^5.8.3"
     }
 }

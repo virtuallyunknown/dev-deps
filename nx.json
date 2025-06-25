@@ -21,10 +21,9 @@
         "projectsRelationship": "fixed",
         "projects": ["packages/*", "tools/*"],
         "version": {
-            "generatorOptions": {
-                "preserveLocalDependencyProtocols": true,
-                "installIgnoreScripts": true,
-                "currentVersionResolver": "git-tag"
+            "currentVersionResolver": "git-tag",
+            "versionActionsOptions": {
+                "installIgnoreScripts": true
             }
         }
     }

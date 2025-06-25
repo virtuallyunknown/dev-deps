@@ -10,9 +10,9 @@ const trpc = createTRPCProxyClient<AppRouter>({
     links: [
         httpBatchLink({
             url: 'http://localhost:3000/trpc',
+            transformer: superjson,
         }),
     ],
-    transformer: superjson,
 });
 
 export const useStore = createWithEqualityFn<StoreProps & StoreActions>()((set, get) => ({
