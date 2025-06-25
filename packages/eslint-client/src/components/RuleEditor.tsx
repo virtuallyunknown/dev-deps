@@ -112,7 +112,7 @@ export const RuleEditor = () => {
 
             <h2 className='mb-2 text-lg font-semibold text-gray-900'>Rule details</h2>
             <div className='grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-2'>
-                <RuleProp checked={selectedRule.deprecated} name='Deprecated' />
+                <RuleProp checked={selectedRule.deprecated !== false} name='Deprecated' />
                 <RuleProp checked={selectedRule.removed} name='Removed' />
                 <RuleProp checked={selectedRule.recommended ? true : false} name='Recommended' />
                 <RuleProp checked={selectedRule.fixable ? true : false} name='Fixable' />
