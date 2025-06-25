@@ -16,6 +16,12 @@
         }
     },
     "defaultBase": "master",
+    "cli": {
+        "packageManager": "pnpm"
+    },
+    "tui": {
+        "enabled": false
+    },
     "release": {
         "releaseTagPattern": "{version}",
         "projectsRelationship": "fixed",
