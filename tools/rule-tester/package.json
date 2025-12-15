@@ -6,5 +6,8 @@
     "dependencies": {
         "@virtuallyunknown/eslint-config": "workspace:*",
         "@virtuallyunknown/tsconfig": "workspace:*"
+    },
+    "devDependencies": {
+        "eslint": "9.39.2"
     }
 }

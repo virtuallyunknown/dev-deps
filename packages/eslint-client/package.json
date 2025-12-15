@@ -12,27 +12,27 @@
         "@codemirror/lang-json": "^6.0.2",
         "@codemirror/lint": "^6.8.5",
         "@lezer/highlight": "^1.2.1",
-        "@trpc/client": "^11.4.2",
+        "@trpc/client": "^11.8.0",
         "@uiw/codemirror-extensions-langs": "^4.23.13",
         "@uiw/codemirror-theme-github": "^4.23.13",
         "@uiw/react-codemirror": "^4.23.13",
         "@virtuallyunknown/eslint-server": "workspace:*",
         "clsx": "^2.1.1",
-        "react": "^19.1.0",
-        "react-dom": "^19.1.0",
-        "superjson": "^2.2.2",
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3",
+        "superjson": "^2.2.6",
         "zod": "^3.25.67",
-        "zustand": "^5.0.5"
+        "zustand": "^5.0.9"
     },
     "devDependencies": {
         "@types/eslint": "^9.6.1",
-        "@types/react": "^19.1.8",
-        "@types/react-dom": "^19.1.6",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
         "@virtuallyunknown/esbuild": "workspace:*",
         "@virtuallyunknown/eslint-config": "workspace:*",
         "@virtuallyunknown/tsconfig": "workspace:*",
         "eslint-plugin-tailwindcss": "^3.18.0",
         "tailwindcss": "^3.4.16",
-        "typescript": "^5.8.3"
+        "typescript": "^5.9.3"
     }
 }

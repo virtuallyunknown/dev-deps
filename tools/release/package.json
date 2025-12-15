@@ -12,9 +12,9 @@
         "@virtuallyunknown/tsconfig": "workspace:*",
         "axios": "^1.10.0",
         "enquirer": "^2.4.1",
-        "semver": "^7.7.2"
+        "semver": "^7.7.3"
     },
     "devDependencies": {
-        "@types/semver": "^7.7.0"
+        "@types/semver": "^7.7.1"
     }
 }

@@ -23,12 +23,12 @@
         ".": "./src/index.js"
     },
     "dependencies": {
-        "@stylistic/eslint-plugin": "5.0.0",
+        "@stylistic/eslint-plugin": "5.6.1",
         "eslint-plugin-react": "7.37.5",
-        "eslint-plugin-react-hooks": "5.2.0",
-        "eslint-plugin-unicorn": "59.0.1",
+        "eslint-plugin-react-hooks": "7.0.1",
+        "eslint-plugin-unicorn": "62.0.0",
         "globals": "^16.2.0",
-        "typescript-eslint": "8.35.0"
+        "typescript-eslint": "8.49.0"
     },
     "peerDependencies": {
         "eslint": "^9.19.0"
