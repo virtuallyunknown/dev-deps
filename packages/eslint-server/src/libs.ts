@@ -9,6 +9,24 @@ import eslintBase from 'eslint/use-at-your-own-risk';
 import { execSync } from 'node:child_process';
 import eslintTypeScript from 'typescript-eslint';
 
+/**
+ * Eslint-plugin-react-hooks does not provide rule URLs since the new
+ * version (6 or 7) which added compiler rules.
+ */
+
+for (const [key, value] of Object.entries(eslintReactHooks.rules)) {
+    eslintReactHooks.rules[key] = {
+        ...value,
+        meta: {
+            ...value.meta,
+            docs: {
+                ...value.meta.docs,
+                url: `https://github.com/facebook/react`
+            }
+        }
+    };
+}
+
 const rules: RawLibData = {
     'eslint': {
         prefix: null,
